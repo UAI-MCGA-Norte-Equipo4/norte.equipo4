@@ -1,0 +1,54 @@
+﻿@using Common.Entities;
+@model IList<Product>
+@{
+  ViewBag.Title = "Index";
+}
+
+<!--<h2>Index</h2>-->
+
+
+  <div class="product-list">
+    <a href="/Product/Create">
+        <button class="button-principal">Agregar</button>
+    </a>
+
+    <table>
+      <thead>
+          <tr>
+              <th>Titulo</th>
+              <th>Descripción</th>
+              <th>Artista</th>
+              <th>Precio</th>
+              <th>Cantidad Vendidos</th>
+              <th>Calificación Promedio</th>
+              <th colspan="2">Acciones</th>
+          </tr>
+      </thead>
+      <tbody>
+      </tbody>
+      @foreach (Product item in Model)
+      {
+    <tr>
+        <td> @item.Title</td>
+        <td> @item.Description</td>
+        <td> @item.Artist.LastName</td>
+        <td> @item.Price</td>
+        <td> @item.QuantitySold</td>
+        <td> @item.AvgStars</td>
+        <td>
+          <a href="/Product/Modify/@item.Id">
+            <img class="icon" src="~/Content/Images/edit.icon.png" />
+          </a>
+          <!--@Html.ActionLink("Modificar", "Modify", "Product", new { id = item.Id }, null)-->
+        </td>
+        <td>
+          <a href="/Product/Delete/@item.Id">
+            <img class="icon" src="~/Content/Images/trash.icon.png" />
+          </a>
+          <!--@Html.ActionLink("Eliminar", "Delete", "Product", new { id = item.Id }, null)-->
+        </td>
+    </tr>
+      }
+
+    </table>
+  </div>

@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta htt-equiv="Content-Type" content="text/html; charset-utf-8" />
+	<meta name="viewport" content="width-device-width, initial-scale-1.0" />
+
+	<title>ART - Market</title>
+	<link href="~/Content/Site.css" rel="stylesheet" />
+</head>
+<body>
+		<div>
+				<header>
+						<nav class="header_menu">
+							<ul>
+								<li><a href="/">Inicio</a></li>
+								<li><a href="/Product/Search">Buscar</a></li>
+								<li><a href="/Home/Contact">Contacto</a></li>
+								@if (User.IsInRole("Admin"))
+								{
+									<li><a href="/Product">Productos</a></li>
+									<li><a href="/User">Usuarios</a></li>
+									<li><a href="/Artist">Artistas</a></li>
+									<li><a href="/Order">Ordenes</a></li>
+								}
+							</ul>
+						</nav>
+
+						<ul class="icon_headers">
+								<li>@User.Identity.Name</li>
+								<li>
+										<a href="/Cart">
+												<img class="icon" src="~/Content/Images/cart.icon.png" />
+										</a>
+								</li>
+								<li>
+										<a href="/Account/LoginLogout">
+												<img class="icon" src="~/Content/Images/user.icon.png" />
+										</a>
+								</li>
+						</ul>
+				</header>
+				<section>
+						<article class="body">
+								@RenderBody()
+						</article>
+				</section>
+				<!--
+				<aside>
+					<article>
+					</article>
+				</aside>
+				-->
+				<footer>
+						<div>
+							<a href="mailto:AlexisRK5@gmail.com">
+								<img class="icon" src="~/Content/Images/evenlope.icon.png" />
+							</a>
+							<p>Art Market - @DateTime.Now.Year</p>
+						</div>
+				</footer>
+		</div>
+		@Scripts.Render("~/bundles/jquery")
+		@RenderSection("scripts", required: false)
+
+</body>
+</html>

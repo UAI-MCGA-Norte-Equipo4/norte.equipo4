@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewBag.Title = "Cargar artista";
+}
+<div class="artistpanel">
+  <form method="post" action="/Artist/Create">
+    <h2>Cargar artista</h2>
+    <div style="display: inline-flex;">
+      <div style="display: inline-block;">
+        <label for="firstName">Nombre</label>
+        <input type="text" class="form-control" id="firstName" name="firstName" value="" placeholder="">
+      </div>
+
+      <div>
+        <label for="lastName">Apellido</label>
+        <input type="text" class="form-control" id="lastName" name="lastName" value="" placeholder="">
+      </div>
+    </div>
+    <div>
+      <div style="float: left;">
+        <label for="lifeSpan">Años de vida</label>
+        <input type="number" class="form-control" id="lifeSpan" name="lifeSpan" min="1" max="110" value="60">
+      </div>
+
+      <div style="float: right;">
+        <label for="country">País</label>
+        <input type="text" class="form-control" id="country" name="country" value="" placeholder="">
+      </div>
+    </div>
+    <div>
+      <div style="float: left;">
+        <label for="description">Descripción</label>
+        <input type="text" class="form-control" id="description" name="description" value="" placeholder="">
+      </div>
+
+      <div style="float: right;">
+        <label for="totalProducts">Cantidad de cuadros</label>
+        <input type="number" class="form-control" id="totalProducts" name="totalProducts" min="1" max="500" value="10">
+      </div>
+    </div>
+    <button type="submit" class="button-principal">Guardar</button>
+  </form>
+</div>
