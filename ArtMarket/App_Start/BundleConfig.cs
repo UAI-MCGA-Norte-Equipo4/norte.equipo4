@@ -25,6 +25,11 @@ namespace ArtMarket
 			bundles.Add(new StyleBundle("~/Content/css").Include(
 								"~/Content/bootstrap.css",
 								"~/Content/site.css"));
+
+			bundles.Add(new ScriptBundle("~/bundles/login").Include(
+					"~/Scripts/login/main.js",
+					"~/Scripts/login/animsition.min.js",
+					"~/Scripts/login/select2.min.js"));
 		}
 	}
 }

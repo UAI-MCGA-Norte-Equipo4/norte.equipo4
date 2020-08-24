@@ -21,6 +21,10 @@
     <link rel="stylesheet" href="~/Content/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="~/Content/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="~/Content/style.css" type="text/css">
+    @if (IsSectionDefined("AddToHead"))
+    {
+        @RenderSection("AddToHead", required: false)
+    }
 </head>
 
 <body>
@@ -84,7 +88,7 @@
                                 </ul>
                             </li>
                             <li><a href="./blog.html">Blog</a></li>
-                            <li><a href="./contact.html">Contacto</a></li>
+                            <li><a href="/Home/Contact">Contacto</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -148,7 +152,7 @@
                         <ul>
                             <li><a href="#">Quiénes somos</a></li>
                             <li><a href="#">Blog</a></li>
-                            <li><a href="#">Contacto</a></li>
+                            <li><a href="/Home/Contact">Contacto</a></li>
                             <li><a href="#">Preguntas frecuentes</a></li>
                         </ul>
                     </div>
