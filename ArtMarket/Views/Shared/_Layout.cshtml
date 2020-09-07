@@ -57,8 +57,16 @@
         </div>
         <div id="mobile-menu-wrap"></div>
         <div class="offcanvas__auth">
-            <a href="/Account/LoginLogout">Iniciar sesión</a>
-            <a href="/Account/LoginLogout">Registrarse</a>
+            @if (User.Identity.IsAuthenticated)
+            {
+                <p>Bienvenido @User.Identity.Name</p>
+                <a href="/Account/LoginLogout">Cerrar sesión</a>
+            }
+            else
+            {
+                <a href="/Account/LoginLogout">Iniciar sesión</a>
+                <a href="/Account/LoginLogout">Registrarse</a>
+            }
         </div>
     </div>
     <!-- Offcanvas Menu End -->
@@ -94,10 +102,20 @@
                 </div>
                 <div class="col-lg-3">
                     <div class="header__right">
-                        <div class="header__right__auth">
-                            <a href="/Account/LoginLogout">Iniciar sesión</a>
-                            <a href="/Account/LoginLogout">Registrarse</a>
-                        </div>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <div class="header__right__auth">
+                                <a>Hola @User.Identity.Name</a>
+                                <a href="/Account/LoginLogout">Cerrar sesión</a>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="header__right__auth">
+                                <a href="/Account/LoginLogout">Iniciar sesión</a>
+                                <a href="/Account/LoginLogout">Registrarse</a>
+                            </div>
+                        }
                         <ul class="header__right__widget">
                             <li><span class="icon_search search-switch"></span></li>
                             <li>
