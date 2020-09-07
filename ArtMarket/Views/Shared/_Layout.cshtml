@@ -35,7 +35,7 @@
         <div class="offcanvas__close">+</div>
         <ul class="offcanvas__widget">
             <li><span class="icon_search search-switch"></span></li>
-            <li>
+            @*<li>
                 <a href="#">
                     <span class="icon_heart_alt"></span>
                     <div class="tip">2</div>
@@ -46,15 +46,25 @@
                     <span class="icon_bag_alt"></span>
                     <div class="tip">2</div>
                 </a>
-            </li>
+            </li>*@
         </ul>
         <div class="offcanvas__logo">
-            <a href="./index.html"><img src="~/Content/img/logo.png" alt=""></a>
+            <a href="/Home"><img src="~/Content/img/logo.png" alt=""></a>
         </div>
         <div id="mobile-menu-wrap"></div>
         <div class="offcanvas__auth">
-            <a href="/Account/Login">Login</a>
-            <a href="#">Registro</a>
+            @if (User.Identity.Name != null)
+            {
+                @User.Identity.Name
+                <a href="/Account/LoginLogout">
+                    <span class="icon_profile"></span>
+                </a>
+            }
+            else
+            {
+                <a href="/Account/Login">Login</a>
+                <a href="#">Registro</a>
+            }
         </div>
     </div>
     <!-- Offcanvas Menu End -->
@@ -63,15 +73,22 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-xl-4 col-lg-2">
-                    <a href="./index.html"><img src="~/Content/img/logo.png" alt="" style="width:100px" ;></a>
+                    <a href="/Home"><img src="~/Content/img/logo.png" alt="" style="width:100px" ;></a>
                 </div>
                 <div class="col-xl-5 col-lg-7">
                     <nav class="header__menu">
                         <ul>
-                            <li class="active"><a href="./index.html">Inicio</a></li>
-                            <li><a href="#">Artistas</a></li>
+                            <li class="active"><a href="/Home">Inicio</a></li>
+                            
                             <li><a href="#">Galeria</a></li>
-                            <li><a href="#">Buscar</a></li>
+                            @*<li><a href="#">Buscar</a></li>*@
+                            @if (User.IsInRole("Admin"))
+                            {
+                                <li><a href="/Product">Productos</a></li>
+                                <li><a href="/User">Usuarios</a></li>
+                                <li><a href="/Artist">Artistas</a></li>
+                                <li><a href="/Order">Ordenes</a></li>
+                            }
                             @*<li><a href="./shop.html">Shop</a></li>
         <li>
             <a href="#">Pages</a>
@@ -83,15 +100,27 @@
             </ul>
         </li>
         <li><a href="./blog.html">Blog</a></li>*@
-                            <li><a href="/Home/Contact">Contacto</a></li>
+                            @*<li><a href="/Home/Contact">Contacto</a></li>*@
                         </ul>
                     </nav>
                 </div>
                 <div class="col-lg-3">
                     <div class="header__right">
                         <div class="header__right__auth">
-                            <a href="/Account/Login">Login</a>
-                            <a href="#">Registro</a>
+                            @if (User.Identity.Name != null)
+                            {
+                                @User.Identity.Name
+                                <a href="/Account/LoginLogout">
+                                    <span class="icon_profile" style="width:50px"></span>
+                                </a>
+
+                            }
+                            else
+                            {
+                                <a href="/Account/Login">Login</a>
+                                <a href="#">Registro</a>
+                            }
+
                         </div>
                         <ul class="header__right__widget">
                             <li><span class="icon_search search-switch"></span></li>
@@ -201,7 +230,7 @@
         <div class="h-100 d-flex align-items-center justify-content-center">
             <div class="search-close-switch">+</div>
             <form class="search-model-form">
-                <input type="text" id="search-input" placeholder="Search here.....">
+                <input type="text" id="search-input" placeholder="Buscar....">
             </form>
         </div>
     </div>
