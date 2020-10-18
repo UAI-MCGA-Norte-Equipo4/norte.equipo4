@@ -21,6 +21,10 @@
     <link rel="stylesheet" href="~/Content/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="~/Content/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="~/Content/style.css" type="text/css">
+    @if (IsSectionDefined("AddToHead"))
+    {
+        @RenderSection("AddToHead", required: false)
+    }
 </head>
 
 <body>
@@ -35,7 +39,7 @@
         <div class="offcanvas__close">+</div>
         <ul class="offcanvas__widget">
             <li><span class="icon_search search-switch"></span></li>
-            @*<li>
+            <li>
                 <a href="#">
                     <span class="icon_heart_alt"></span>
                     <div class="tip">2</div>
@@ -46,24 +50,22 @@
                     <span class="icon_bag_alt"></span>
                     <div class="tip">2</div>
                 </a>
-            </li>*@
+            </li>
         </ul>
         <div class="offcanvas__logo">
-            <a href="/Home"><img src="~/Content/img/logo.png" alt=""></a>
+            <a href="/"><img src="~/Content/img/logo.png" alt=""></a>
         </div>
         <div id="mobile-menu-wrap"></div>
         <div class="offcanvas__auth">
-            @if (User.Identity.Name != null)
+            @if (User.Identity.IsAuthenticated)
             {
-                @User.Identity.Name
-                <a href="/Account/LoginLogout">
-                    <span class="icon_profile"></span>
-                </a>
+                <p>Bienvenido @User.Identity.Name</p>
+                <a href="/Account/LoginLogout">Cerrar sesión</a>
             }
             else
             {
-                <a href="/Account/Login">Login</a>
-                <a href="#">Registro</a>
+                <a href="/Account/LoginLogout">Iniciar sesión</a>
+                <a href="/Account/Register">Registrarse</a>
             }
         </div>
     </div>
@@ -79,7 +81,7 @@
                     <nav class="header__menu">
                         <ul>
                             <li class="active"><a href="/Home">Inicio</a></li>
-                            
+
                             <li><a href="#">Galeria</a></li>
                             @*<li><a href="#">Buscar</a></li>*@
                             @if (User.IsInRole("Admin"))
@@ -90,52 +92,50 @@
                                 <li><a href="/Order">Ordenes</a></li>
                             }
                             @*<li><a href="./shop.html">Shop</a></li>
-        <li>
-            <a href="#">Pages</a>
-            <ul class="dropdown">
-                <li><a href="./product-details.html">Product Details</a></li>
-                <li><a href="./shop-cart.html">Shop Cart</a></li>
-                <li><a href="./checkout.html">Checkout</a></li>
-                <li><a href="./blog-details.html">Blog Details</a></li>
-            </ul>
-        </li>
-        <li><a href="./blog.html">Blog</a></li>*@
+                    <li>
+                        <a href="#">Pages</a>
+                        <ul class="dropdown">
+                            <li><a href="./product-details.html">Product Details</a></li>
+                            <li><a href="./shop-cart.html">Shop Cart</a></li>
+                            <li><a href="./checkout.html">Checkout</a></li>
+                            <li><a href="./blog-details.html">Blog Details</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="./blog.html">Blog</a></li>*@
                             @*<li><a href="/Home/Contact">Contacto</a></li>*@
                         </ul>
                     </nav>
                 </div>
                 <div class="col-lg-3">
                     <div class="header__right">
-                        <div class="header__right__auth">
-                            @if (User.Identity.Name != null)
-                            {
-                                @User.Identity.Name
-                                <a href="/Account/LoginLogout">
-                                    <span class="icon_profile" style="width:50px"></span>
-                                </a>
-
-                            }
-                            else
-                            {
-                                <a href="/Account/Login">Login</a>
-                                <a href="#">Registro</a>
-                            }
-
-                        </div>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <div class="header__right__auth">
+                                <a>Hola @User.Identity.Name</a>
+                                <a href="/Account/LoginLogout">Cerrar sesión</a>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="header__right__auth">
+                                <a href="/Account/Login">Iniciar sesión</a>
+                                <a href="/Account/Register">Registrarse</a>
+                            </div>
+                        }
                         <ul class="header__right__widget">
                             <li><span class="icon_search search-switch"></span></li>
-                            @*<li>
-                                    <a href="#">
-                                        <span class="icon_heart_alt"></span>
-                                        <div class="tip">2</div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <span class="icon_bag_alt"></span>
-                                        <div class="tip">2</div>
-                                    </a>
-                                </li>*@
+                            <li>
+                                <a href="#">
+                                    <span class="icon_heart_alt"></span>
+                                    <div class="tip">2</div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="icon_bag_alt"></span>
+                                    <div class="tip">2</div>
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -183,16 +183,16 @@
                     </div>
                 </div>
                 @*<div class="col-lg-2 col-md-3 col-sm-4">
-                    <div class="footer__widget">
-                        <h6>Account</h6>
-                        <ul>
-                            <li><a href="#">My Account</a></li>
-                            <li><a href="#">Orders Tracking</a></li>
-                            <li><a href="#">Checkout</a></li>
-                            <li><a href="#">Wishlist</a></li>
-                        </ul>
-                    </div>
-                </div>*@
+                        <div class="footer__widget">
+                            <h6>Account</h6>
+                            <ul>
+                                <li><a href="#">My Account</a></li>
+                                <li><a href="#">Orders Tracking</a></li>
+                                <li><a href="#">Checkout</a></li>
+                                <li><a href="#">Wishlist</a></li>
+                            </ul>
+                        </div>
+                    </div>*@
                 <div class="col-lg-4 col-md-8 col-sm-8">
                     <div class="footer__newslatter">
                         <h6>NEWSLETTER</h6>
