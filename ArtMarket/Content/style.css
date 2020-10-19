@@ -862,6 +862,7 @@ ol {
 
 .footer__logo {
 	margin-bottom: 20px;
+	max-width: 8rem;
 }
 
 .footer__payment a {

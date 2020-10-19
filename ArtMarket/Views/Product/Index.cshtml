@@ -36,16 +36,10 @@
         <td> @item.QuantitySold</td>
         <td> @item.AvgStars</td>
         <td>
-          <a href="/Product/Modify/@item.Id">
-            <img class="icon" src="~/Content/Images/edit.icon.png" />
-          </a>
-          <!--@Html.ActionLink("Modificar", "Modify", "Product", new { id = item.Id }, null)-->
+            @Html.ActionLink("Modificar", "Modify", "Product", new { id = item.Id }, null)
         </td>
         <td>
-          <a href="/Product/Delete/@item.Id">
-            <img class="icon" src="~/Content/Images/trash.icon.png" />
-          </a>
-          <!--@Html.ActionLink("Eliminar", "Delete", "Product", new { id = item.Id }, null)-->
+            @Html.ActionLink("Eliminar", "Delete", "Product", new { id = item.Id }, null)
         </td>
     </tr>
       }

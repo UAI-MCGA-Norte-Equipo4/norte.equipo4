@@ -195,7 +195,7 @@ namespace ArtMarket.Controllers
 		[AllowAnonymous]
 		public ActionResult ForgotPassword()
 		{
-			return View();
+			return View(new ForgotPasswordViewModel());
 		}
 
 		//
