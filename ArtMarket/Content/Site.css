@@ -246,24 +246,6 @@ footer p {
 
 
   /*HOME*/
-.home {
-  padding: 100px 160px;
-}
-
-.main-description {
-  font-family: Tahoma;
-  font-size: 30px;
-  color: white;
-  width: 1000px;
-}
-
-.home picture {
-    position: absolute;
-    right: 15%;
-    top: 25%;
-    z-index: -1;
-}
-
 .price {
   position: absolute;
   right: 10%;
