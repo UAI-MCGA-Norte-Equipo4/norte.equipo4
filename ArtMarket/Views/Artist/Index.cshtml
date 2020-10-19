@@ -35,14 +35,10 @@
         <td> @artist.Description</td>
         <td> @artist.TotalProducts</td>
         <td>
-          <a href="/Artist/Modify/@artist.Id">
-            <img class="icon" src="~/Content/Images/edit.icon.png" />
-          </a>
+            @Html.ActionLink("Modificar", "Modify", "Artist", new { id = artist.Id }, null)
         </td>
         <td>
-          <a href="/Artist/Delete/@artist.Id">
-            <img class="icon" src="~/Content/Images/trash.icon.png" />
-          </a>
+            @Html.ActionLink("Eliminar", "Delete", "Artist", new { id = artist.Id }, null)
         </td>
     </tr>
       }
