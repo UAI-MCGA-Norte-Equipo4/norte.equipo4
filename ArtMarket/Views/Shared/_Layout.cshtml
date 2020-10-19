@@ -70,39 +70,31 @@
         </div>
     </div>
     <!-- Offcanvas Menu End -->
-    <!-- Header Section Begin -->
+    <!-- Sección Header - Begin -->
     <header class="header">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-xl-4 col-lg-2">
-                    <a href="/Home"><img src="~/Content/img/logo.png" alt="" style="width:100px" ;></a>
+                <div class="col-xl-3 col-lg-2">
+                    <a href="/"><img src="~/Content/img/logo.png" alt="Logo de la empresa" style="width:100px"></a>
                 </div>
                 <div class="col-xl-5 col-lg-7">
                     <nav class="header__menu">
                         <ul>
                             <li class="active"><a href="/Home">Inicio</a></li>
-
-                            <li><a href="#">Galeria</a></li>
-                            @*<li><a href="#">Buscar</a></li>*@
+                            <li><a href="#">Galería</a></li>
+                            <li><a href="/Home/Contact">Contacto</a></li>
                             @if (User.IsInRole("Admin"))
                             {
-                                <li><a href="/Product">Productos</a></li>
-                                <li><a href="/User">Usuarios</a></li>
-                                <li><a href="/Artist">Artistas</a></li>
-                                <li><a href="/Order">Ordenes</a></li>
+                                <li>
+                                    <a href="#">Admin</a>
+                                    <ul class="dropdown">
+                                        <li><a href="/User">Usuarios</a></li>
+                                        <li><a href="/Product">Productos</a></li>
+                                        <li><a href="/Artist">Artistas</a></li>
+                                        <li><a href="/Order">Pedidos</a></li>
+                                    </ul>
+                                </li>
                             }
-                            @*<li><a href="./shop.html">Shop</a></li>
-                    <li>
-                        <a href="#">Pages</a>
-                        <ul class="dropdown">
-                            <li><a href="./product-details.html">Product Details</a></li>
-                            <li><a href="./shop-cart.html">Shop Cart</a></li>
-                            <li><a href="./checkout.html">Checkout</a></li>
-                            <li><a href="./blog-details.html">Blog Details</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="./blog.html">Blog</a></li>*@
-                            @*<li><a href="/Home/Contact">Contacto</a></li>*@
                         </ul>
                     </nav>
                 </div>
@@ -111,7 +103,7 @@
                         @if (User.Identity.IsAuthenticated)
                         {
                             <div class="header__right__auth">
-                                <a>Hola @User.Identity.Name</a>
+                                <a>Hola @User.Identity.Name.Substring(0, 12)...</a>
                                 <a href="/Account/LoginLogout">Cerrar sesión</a>
                             </div>
                         }
@@ -146,11 +138,9 @@
         </div>
     </header>
     <!-- Header Section End -->
-    <section>
-        <article class="body">
-            @RenderBody()
-        </article>
-    </section>
+
+    @RenderBody()
+
     <!-- Footer Section Begin -->
     <footer class="footer">
         <div class="container">
@@ -158,10 +148,10 @@
                 <div class="col-lg-4 col-md-6 col-sm-7">
                     <div class="footer__about">
                         <div class="footer__logo">
-                            <a href="./index.html"><img src="~/Content/img/logo.png" alt=""></a>
+                            <a href="/"><img src="~/Content/img/logo.png" alt="Logo de la empresa"></a>
                         </div>
                         <p>
-                            ArtMarket.
+                            Puede pagar con cualquiera de los siguientes medios de pago.
                         </p>
                         <div class="footer__payment">
                             <a href="#"><img src="~/Content/img/payment/payment-1.png" alt=""></a>
@@ -174,31 +164,32 @@
                 </div>
                 <div class="col-lg-2 col-md-3 col-sm-5">
                     <div class="footer__widget">
-                        <h6>Links</h6>
+                        <h6>Accesos rápidos</h6>
                         <ul>
-                            <li><a href="#">Artistas</a></li>
+                            <li><a href="#">Quiénes somos</a></li>
                             <li><a href="#">Galería de productos</a></li>
                             <li><a href="/Home/Contact">Contacto</a></li>
+                            <li><a href="#">Preguntas frecuentes</a></li>
                         </ul>
                     </div>
                 </div>
-                @*<div class="col-lg-2 col-md-3 col-sm-4">
-                        <div class="footer__widget">
-                            <h6>Account</h6>
-                            <ul>
-                                <li><a href="#">My Account</a></li>
-                                <li><a href="#">Orders Tracking</a></li>
-                                <li><a href="#">Checkout</a></li>
-                                <li><a href="#">Wishlist</a></li>
-                            </ul>
-                        </div>
-                    </div>*@
+                <div class="col-lg-2 col-md-3 col-sm-4">
+                    <div class="footer__widget">
+                        <h6>Cuenta</h6>
+                        <ul>
+                            <li><a href="#">Mi cuenta</a></li>
+                            <li><a href="#">Mis pedidos</a></li>
+                            <li><a href="/Cart">Carrito</a></li>
+                            <li><a href="#">Lista de deseados</a></li>
+                        </ul>
+                    </div>
+                </div>
                 <div class="col-lg-4 col-md-8 col-sm-8">
                     <div class="footer__newslatter">
-                        <h6>NEWSLETTER</h6>
+                        <h6>Novedades</h6>
                         <form action="#">
                             <input type="text" placeholder="Email">
-                            <button type="submit" class="site-btn">Subscribite</button>
+                            <button type="submit" class="site-btn">Suscribirme</button>
                         </form>
                         <div class="footer__social">
                             <a href="#"><i class="fa fa-facebook"></i></a>
@@ -219,7 +210,6 @@
                             <script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
                         </p>
                     </div>
-                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                 </div>
             </div>
         </div>
@@ -230,7 +220,7 @@
         <div class="h-100 d-flex align-items-center justify-content-center">
             <div class="search-close-switch">+</div>
             <form class="search-model-form">
-                <input type="text" id="search-input" placeholder="Buscar....">
+                <input type="text" id="search-input" placeholder="¿Qué estás buscando?">
             </form>
         </div>
     </div>
@@ -246,66 +236,5 @@
     <script src="~/Scripts/owl.carousel.min.js"></script>
     <script src="~/Scripts/jquery.nicescroll.min.js"></script>
     <script src="~/Scripts/main.js"></script>
-
-
-
-
-
-    <!-- diseño anterior (LPPA) -->
-    @*<div>
-            <header>
-                <nav class="header_menu">
-                    <ul>
-                        <li><a href="/">Inicio</a></li>
-                        <li><a href="/Product/Search">Buscar</a></li>
-                        <li><a href="/Home/Contact">Contacto</a></li>
-                        @if (User.IsInRole("Admin"))
-                        {
-                            <li><a href="/Product">Productos</a></li>
-                            <li><a href="/User">Usuarios</a></li>
-                            <li><a href="/Artist">Artistas</a></li>
-                            <li><a href="/Order">Ordenes</a></li>
-                        }
-                    </ul>
-                </nav>
-
-                <ul class="icon_headers">
-                    <li>@User.Identity.Name</li>
-                    <li>
-                        <a href="/Cart">
-                            <img class="icon" src="~/Content/Images/cart.icon.png" />
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/Account/LoginLogout">
-                            <img class="icon" src="~/Content/Images/user.icon.png" />
-                        </a>
-                    </li>
-                </ul>
-            </header>
-            <section>
-                <article class="body">
-                    @RenderBody()
-                </article>
-            </section>
-
-            <aside>
-                <article>
-                </article>
-            </aside>
-
-            <footer>
-                <div>
-                    <a href="mailto:AlexisRK5@gmail.com">
-                        <img class="icon" src="~/Content/Images/evenlope.icon.png" />
-                    </a>
-                    <p>Art Market - @DateTime.Now.Year</p>
-                </div>
-            </footer>
-        </div>*@
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
-
 </body>
 </html>
