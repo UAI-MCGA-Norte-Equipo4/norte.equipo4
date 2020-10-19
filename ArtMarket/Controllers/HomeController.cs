@@ -18,7 +18,7 @@ namespace ComprasOnline.Controllers
 
 		public ActionResult Index()
 		{
-			var products = ProductManagement.GetAllProducts().OrderByDescending(x => x.CreatedBy).Take(3);
+			var products = ProductManagement.GetAllProducts().OrderByDescending(x => x.CreatedBy).Take(4);
 			return View(products.ToList());
 		}
 
