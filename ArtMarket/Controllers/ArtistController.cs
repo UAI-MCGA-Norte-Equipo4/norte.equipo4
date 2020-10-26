@@ -1,11 +1,10 @@
-﻿using ArtMarket.Controllers;
+﻿using System;
+using System.Web.Mvc;
 using BusinessLogic;
 using BusinessLogic.Contracts;
 using Common.Entities;
-using System;
-using System.Web.Mvc;
 
-namespace ComprasOnline.Controllers
+namespace ArtMarket.Controllers
 {
 	public class ArtistController : BaseController
 	{
