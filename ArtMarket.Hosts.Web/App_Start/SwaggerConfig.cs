@@ -1,4 +1,5 @@
 using System.Web.Http;
+using ArtMarket.Hosts.Web;
 using WebActivatorEx;
 using Swashbuckle.Application;
 
@@ -31,7 +32,7 @@ namespace ArtMarket.Hosts.Web
                         // hold additional metadata for an API. Version and title are required but you can also provide
                         // additional fields by chaining methods off SingleApiVersion.
                         //
-                        c.SingleApiVersion("v1", "LayeredApp.Hosts.Web");
+                        c.SingleApiVersion("v1", "ArtMarket.Hosts.Web");
 
                         // If you want the output Swagger docs to be indented properly, enable the "PrettyPrint" option.
                         //
