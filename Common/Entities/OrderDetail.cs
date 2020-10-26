@@ -11,8 +11,6 @@ namespace Common.Entities
     public class OrderDetail : IdentityBase
     {
         [Required]
-        public int Id { get; set; }
-        [Required]
         public int OrderId { get; set; }
         [Required]
         public int ProductId { get; set; }

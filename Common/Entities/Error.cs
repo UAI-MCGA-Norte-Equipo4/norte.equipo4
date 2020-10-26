@@ -8,7 +8,6 @@ namespace Common.Entities
 {
     public class Error : IdentityBase
     {
-        public int Id { get; set; }
         public int UserId { get; set; }
 
         public DateTime ErrorDate { get; set; }
