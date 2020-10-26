@@ -11,8 +11,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\Da
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business", "BusinessLogic\Business.csproj", "{70039549-1971-44C4-A28A-8845E655872B}"
 EndProject
-Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "ArtDatabase", "ArtDatabase\ArtDatabase.sqlproj", "{EB4D30AB-A962-4B62-9FD3-006608D071BD}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{3E8AA9FE-B03D-42B9-86FF-06E7620E8580}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArtMarket.Services.Contracts", "ArtMarket.Services.Contracts\ArtMarket.Services.Contracts.csproj", "{36E54478-580A-44C7-BFA1-8C8CDCF29B8B}"
@@ -45,12 +43,6 @@ Global
 		{70039549-1971-44C4-A28A-8845E655872B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{70039549-1971-44C4-A28A-8845E655872B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{70039549-1971-44C4-A28A-8845E655872B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EB4D30AB-A962-4B62-9FD3-006608D071BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EB4D30AB-A962-4B62-9FD3-006608D071BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EB4D30AB-A962-4B62-9FD3-006608D071BD}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{EB4D30AB-A962-4B62-9FD3-006608D071BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EB4D30AB-A962-4B62-9FD3-006608D071BD}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EB4D30AB-A962-4B62-9FD3-006608D071BD}.Release|Any CPU.Deploy.0 = Release|Any CPU
 		{36E54478-580A-44C7-BFA1-8C8CDCF29B8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{36E54478-580A-44C7-BFA1-8C8CDCF29B8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{36E54478-580A-44C7-BFA1-8C8CDCF29B8B}.Release|Any CPU.ActiveCfg = Release|Any CPU

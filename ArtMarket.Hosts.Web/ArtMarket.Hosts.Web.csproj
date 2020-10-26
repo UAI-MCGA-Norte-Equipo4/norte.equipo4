@@ -90,12 +90,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Global.asax" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\HttpServiceTypeResolver.cs" />
     <Compile Include="App_Start\SwaggerConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -108,10 +112,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ArtDatabase\ArtDatabase.sqlproj">
-      <Project>{eb4d30ab-a962-4b62-9fd3-006608d071bd}</Project>
-      <Name>ArtDatabase</Name>
-    </ProjectReference>
     <ProjectReference Include="..\ArtMarket.Services.Contracts\ArtMarket.Services.Contracts.csproj">
       <Project>{36e54478-580a-44c7-bfa1-8c8cdcf29b8b}</Project>
       <Name>ArtMarket.Services.Contracts</Name>
