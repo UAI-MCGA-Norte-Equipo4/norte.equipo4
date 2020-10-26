@@ -62,9 +62,9 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Common\Common.csproj">
+    <ProjectReference Include="..\Common\Shared.csproj">
       <Project>{a493d647-6ab4-4e7f-ad9a-0fc93e2a19e2}</Project>
-      <Name>Common</Name>
+      <Name>Shared</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

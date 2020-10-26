@@ -56,9 +56,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Common\Common.csproj">
+    <ProjectReference Include="..\Common\Shared.csproj">
       <Project>{a493d647-6ab4-4e7f-ad9a-0fc93e2a19e2}</Project>
-      <Name>Common</Name>
+      <Name>Shared</Name>
     </ProjectReference>
     <ProjectReference Include="..\DataAccess\DataAccess.csproj">
       <Project>{606c8daf-0dfd-44ec-8848-df90577d65c5}</Project>

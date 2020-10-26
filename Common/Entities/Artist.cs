@@ -1,9 +1,13 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.Runtime.Serialization;
 
 namespace Common.Entities
 {
+    [Serializable]
+    [DataContract]
 	public class Artist : IdentityBase
 	{
 		public Artist()
@@ -11,25 +15,30 @@ namespace Common.Entities
 			this.Products = new HashSet<Product>();
 		}
 
+        [DataMember]
+        [Browsable(false)]
 		[Required]
 		[DisplayName("Nombre")]
 		public string FirstName { get; set; }
 
-		[Required]
+        [DataMember]
+        [Required]
 		[DisplayName("Apellido")]
 		public string LastName { get; set; }
 
 		public string LifeSpan { get; set; }
 
-
-		[Required]
-		[DisplayName("Pais")]
+        [DataMember]
+        [Required]
+		[DisplayName("País")]
 		public string Country { get; set; }
 
-		public string Description { get; set; }
+        [DataMember]
+        [DisplayName("Descripción")]
+        public string Description { get; set; }
 
-
-		[Required]
+        [DataMember]
+        [Required]
 		[DisplayName("Cuadros")]
 		public int TotalProducts { get; set; }
 
