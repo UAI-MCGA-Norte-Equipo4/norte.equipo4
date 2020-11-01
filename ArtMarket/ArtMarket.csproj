@@ -513,20 +513,20 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BusinessLogic\Business.csproj">
-      <Project>{70039549-1971-44c4-a28a-8845e655872b}</Project>
-      <Name>Business</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Common\Shared.csproj">
-      <Project>{a493d647-6ab4-4e7f-ad9a-0fc93e2a19e2}</Project>
-      <Name>Shared</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ArtMarket.Business\ArtMarket.Business.csproj">
+      <Project>{5b512e86-794f-4ef5-af61-4809498a39e8}</Project>
+      <Name>ArtMarket.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ArtMarket.Entities\ArtMarket.Entities.csproj">
+      <Project>{b1e82dde-2f2b-4619-9c6e-93afd94503c4}</Project>
+      <Name>ArtMarket.Entities</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

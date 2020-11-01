@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Web.Mvc;
+using ArtMarket.UI.Process;
 using BusinessLogic;
 using BusinessLogic.Contracts;
 using Common.Entities;
@@ -18,7 +19,10 @@ namespace ArtMarket.Controllers
 		// GET: Artist
 		public ActionResult Index()
 		{
-			return View(ArtistManagement.GetAll());
+            var ap = new ArtistProcess();
+            var list = ap.GetAll();
+
+            return View(list);
 		}
 
 		public ActionResult Create()

@@ -1,4 +1,4 @@
-﻿@using Common.Entities;
+﻿@using ArtMarket.Entities.Model.Entities;
 @model IList<User>
 @{
 	ViewBag.Title = "Índice";
@@ -35,11 +35,11 @@
 				<td> @user.SignupDate </td>
 				<!--<td> @user.OrderCount </td>-->
 				<td>
-					@Html.ActionLink("Modificar", "Modify", "User", new { id = user.Id }, null)
-				</td>
+                    @Html.ActionLink("Modificar", "Modify", "User", new { id = user.Id }, null)
+                </td>
 				<td>
-					@Html.ActionLink("Eliminar", "Delete", "User", new { id = user.Id }, null)
-				</td>
+                    @Html.ActionLink("Eliminar", "Delete", "User", new { id = user.Id }, null)
+                </td>
 			</tr>
 		}
 

@@ -9,8 +9,6 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using ArtMarket.Models;
-using BusinessLogic;
-using Common.Entities;
 
 namespace ArtMarket.Controllers
 {

@@ -1,14 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Text;
 using System.Net.Http;
-using System.Web;
-using System.Threading.Tasks;
 using System.Web.Http;
-using BusinessLogic;
-using Common.Entities;
+using ArtMarket.Business;
+using ArtMarket.Entities.Model;
 
 namespace ArtMarket.Services.Http
 {
@@ -29,7 +26,7 @@ namespace ArtMarket.Services.Http
         {
             try
             {
-                var am = new ArtistManagement();
+                var am = new ArtistBusiness();
                 am.Add(artist);
             }
             catch (Exception ex)
@@ -56,8 +53,8 @@ namespace ArtMarket.Services.Http
         {
             try
             {
-                var am = new ArtistManagement();
-                am.Update(artist);
+                var am = new ArtistBusiness();
+                am.Edit(artist);
             }
             catch (Exception ex)
             {
@@ -83,8 +80,8 @@ namespace ArtMarket.Services.Http
         {
             try
             {
-                var am = new ArtistManagement();
-                Artist artist = am.Get(id);
+                var am = new ArtistBusiness();
+                Artist artist = am.Find(id);
 
                 return artist;
             }
@@ -110,8 +107,8 @@ namespace ArtMarket.Services.Http
         {
             try
             {
-                var am = new ArtistManagement();
-                return (List<Artist>)am.GetAll();
+                var am = new ArtistBusiness();
+                return (List<Artist>)am.List();
             }
             catch (Exception ex)
             {
@@ -135,8 +132,8 @@ namespace ArtMarket.Services.Http
         {
             try
             {
-                var am = new ArtistManagement();
-                am.Delete(id);
+                var am = new ArtistBusiness();
+                am.Remove(id);
             }
             catch (Exception ex)
             {

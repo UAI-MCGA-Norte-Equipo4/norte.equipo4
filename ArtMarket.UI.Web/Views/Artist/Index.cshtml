@@ -1,0 +1,47 @@
+﻿@using ArtMarket.Entities.Model
+@model IList<ArtMarket.Entities.Model.Artist>
+@{
+  ViewBag.Title = "Índice";
+}
+
+<!--<h2>Index</h2>-->
+
+  <div class="product-list">
+    <a href="/Artist/Create">
+      <button class="button-principal">Agregar</button>
+    </a>
+
+    <table>
+      <thead>
+          <tr>
+              <th>Nombre</th>
+              <th>Apellido</th>
+              <th>Años de vida</th>
+              <th>País</th>
+              <th>Descripción</th>
+              <th>Cantidad de cuadros</th>
+              <th colspan="2">Acciones</th>
+          </tr>
+      </thead>
+      <tbody>
+      </tbody>
+      @foreach (Artist artist in Model)
+      {
+    <tr>
+        <td> @artist.FirstName</td>
+        <td> @artist.LastName</td>
+        <td> @artist.LifeSpan</td>
+        <td> @artist.Country</td>
+        <td> @artist.Description</td>
+        <td> @artist.TotalProducts</td>
+        <td>
+            @Html.ActionLink("Modificar", "Modify", "Artist", new { id = artist.Id }, null)
+        </td>
+        <td>
+            @Html.ActionLink("Eliminar", "Delete", "Artist", new { id = artist.Id }, null)
+        </td>
+    </tr>
+      }
+
+    </table>
+  </div>
