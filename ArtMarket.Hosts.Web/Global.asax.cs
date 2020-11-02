@@ -7,7 +7,7 @@ using System.Web.Routing;
 
 namespace ArtMarket.Hosts.Web
 {
-    public class Global : System.Web.HttpApplication
+    public class Global : HttpApplication
     {
         protected void Application_Start()
         {

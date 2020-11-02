@@ -35,10 +35,9 @@ namespace ArtMarket.UI.Process
             HttpPost<Artist>("api/artist/editar", artist, MediaType.Json);
         }
 
-        public void Delete(Artist artist)
+        public void Delete(int id)
         {
-            // TODO: ArtistService recibe un id, no un artista
-            HttpPost<Artist>("api/artist/eliminar", artist, MediaType.Json);
+            HttpDelete<Artist>("api/artist/eliminar", id, MediaType.Json);
         }
     }
 }
