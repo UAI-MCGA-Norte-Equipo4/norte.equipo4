@@ -509,6 +509,10 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ArtMarket.Business\ArtMarket.Business.csproj">
+      <Project>{5B512E86-794F-4EF5-AF61-4809498A39E8}</Project>
+      <Name>ArtMarket.Business</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ArtMarket.Entities\ArtMarket.Entities.csproj">
       <Project>{b1e82dde-2f2b-4619-9c6e-93afd94503c4}</Project>
       <Name>ArtMarket.Entities</Name>

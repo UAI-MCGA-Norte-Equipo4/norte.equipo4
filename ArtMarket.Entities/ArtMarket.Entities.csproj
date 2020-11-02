@@ -57,10 +57,12 @@
     <Compile Include="Model\Metadata\OrderNumberMetadata.cs" />
     <Compile Include="Model\Metadata\ProductMetadata.cs" />
     <Compile Include="Model\Metadata\RatingMetadata.cs" />
+    <Compile Include="Model\Metadata\UserMetadata.cs" />
     <Compile Include="Model\Order.cs" />
     <Compile Include="Model\OrderDetail.cs" />
     <Compile Include="Model\OrderNumber.cs" />
     <Compile Include="Model\Product.cs" />
+    <Compile Include="Model\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Model\Rating.cs" />
   </ItemGroup>

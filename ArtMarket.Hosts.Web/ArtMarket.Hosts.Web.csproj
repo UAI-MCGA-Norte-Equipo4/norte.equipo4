@@ -120,10 +120,6 @@
       <Project>{92b0ed92-6c01-49fb-a89a-5cb229af2794}</Project>
       <Name>ArtMarket.Services.Http</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ArtMarket\ArtMarket.csproj">
-      <Project>{f756e6c1-fa16-4c5c-9e17-e5e15803ab63}</Project>
-      <Name>ArtMarket</Name>
-    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
