@@ -5,8 +5,8 @@
 }
 
 <div class="order-form form-dialog" style="margin:20px auto;">
-	<h2>Detalle de la Orden</h2>
-	<table style="text-align:center;">
+	<h2 style="padding-bottom:10px">Listado de Ordenes</h2>
+	<table class="table" style="text-align:center;">
 		<thead>
 			<tr>
 				<th>Numero</th>
@@ -27,7 +27,7 @@
 				<td> @order.TotalPrice</td>
 				<td>
 					<a href="/Order/Details/@order.Id">
-						<img class="icon" src="~/Content/Images/file.icon.png" />
+						<img class="icon-individual" src="~/Content/Images/file.icon.png" />
 					</a>
 				</td>
 			</tr>

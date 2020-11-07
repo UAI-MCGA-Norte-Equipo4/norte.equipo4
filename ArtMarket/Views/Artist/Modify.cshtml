@@ -5,36 +5,36 @@
 }
 <div class="artistpanel">
   <form method="post" action="/Artist/DoUpdate">
-    <h2>Modificar artista</h2>
-    <div style="display: inline-flex;">
-      <div style="display: inline-block;">
+    <h2 style="padding-bottom: 10px">Modificar artista</h2>
+    <div class="form-row">
+      <div class="form-group col-md-6">
         <label for="firstName">Nombre</label>
         <input type="text" class="form-control" id="firstName" name="firstName" value="@Model.FirstName" placeholder="">
       </div>
 
-      <div>
+      <div class="form-group col-md-6">
         <label for="lastName">Apellido</label>
         <input type="text" class="form-control" id="lastName" name="lastName" value="@Model.LastName" placeholder="">
       </div>
     </div>
-    <div>
-      <div style="float: left;">
+    <div class="form-row">
+      <div class="form-group col-md-6">
         <label for="lifeSpan">Años de vida</label>
         <input type="number" class="form-control" id="lifeSpan" name="lifeSpan" min="1" max="110" value="@Model.LifeSpan">
       </div>
 
-      <div style="float: right;">
+      <div class="form-group col-md-6">
         <label for="country">País</label>
         <input type="text" class="form-control" id="country" name="country" value="@Model.Country" placeholder="">
       </div>
     </div>
-    <div>
-      <div style="float: left;">
+    <div class="form-row">
+      <div class="form-group col-md-6">
         <label for="description">Descripción</label>
         <input type="text" class="form-control" id="description" name="description" value="@Model.Description" placeholder="">
       </div>
 
-      <div style="float: right;">
+      <div class="form-group col-md-6">
         <label for="totalProducts">Cantidad de cuadros</label>
         <input type="number" class="form-control" id="totalProducts" name="totalProducts" min="1" max="500" value="@Model.TotalProducts">
       </div>
@@ -42,6 +42,6 @@
 
     @Html.HiddenFor(model => model.Id)
 
-    <button type="submit" class="button-principal">Guardar</button>
+    <button type="submit" class="btn btn-primary">Guardar</button>
   </form>
 </div>

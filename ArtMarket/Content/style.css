@@ -31,6 +31,8 @@
 /* Template default CSS
 /*----------------------------------------*/
 
+
+
 html,
 body {
 	height: 100%;
@@ -85,6 +87,16 @@ p {
 
 img {
 	max-width: 100%;
+}
+
+img.icon {
+	max-height: 20%;
+	max-width: 20%;
+}
+
+img.icon-individual {
+	max-height: 10%;
+	max-width: 10%;
 }
 
 input:focus,

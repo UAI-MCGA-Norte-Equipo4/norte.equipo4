@@ -9,10 +9,10 @@
 
   <div class="product-list">
     <a href="/Product/Create">
-        <button class="button-principal">Agregar</button>
+        <button class="btn btn-primary">Agregar Producto</button>
     </a>
 
-    <table>
+    <table class="table">
       <thead>
           <tr>
               <th>Titulo</th>
@@ -36,10 +36,16 @@
         <td> @item.QuantitySold</td>
         <td> @item.AvgStars</td>
         <td>
-            @Html.ActionLink("Modificar", "Modify", "Product", new { id = item.Id }, null)
+          <a href="/Product/Modify/@item.Id">
+            <img src="~/Content/Images/edit.icon.png" />
+          </a>
+          <!--@Html.ActionLink("Modificar", "Modify", "Product", new { id = item.Id }, null)-->
         </td>
         <td>
-            @Html.ActionLink("Eliminar", "Delete", "Product", new { id = item.Id }, null)
+          <a href="/Product/Delete/@item.Id">
+            <img src="~/Content/Images/trash.icon.png" />
+          </a>
+          <!--@Html.ActionLink("Eliminar", "Delete", "Product", new { id = item.Id }, null)-->
         </td>
     </tr>
       }
