@@ -7,9 +7,6 @@ using System.Web.Security;
 using ArtMarket.Business;
 using ArtMarket.Entities.Model;
 using ArtMarket.UI.Web.Models;
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.Owin;
-using Microsoft.Owin.Security;
 
 namespace ArtMarket.UI.Web.Controllers
 {
