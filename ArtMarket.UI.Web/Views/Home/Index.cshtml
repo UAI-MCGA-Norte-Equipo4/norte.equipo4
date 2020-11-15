@@ -67,11 +67,13 @@
                             <ul class="product__hover">
                                 <li><a href="~/Content/img/product/product-1.jpg" title="Expandir imagen" class="image-popup"><span class="arrow_expand"></span></a></li>
                                 <li><a href="#"><span class="icon_heart_alt" title="Añadir a favoritos (WIP)"></span></a></li>
-                                <li><a href="@Url.Action("Add", "Cart", new { id = item.Id})" title="Comprar ahora"><span class="icon_bag_alt"></span></a></li>
+                                @*TODO:*@
+                                @*<li><a href="@Url.Action("Add", "Cart", new { id = item.Id})" title="Comprar ahora"><span class="icon_bag_alt"></span></a></li>*@
                             </ul>
                         </div>
                         <div class="product__item__text">
-                            <h6><a href="@Url.Action("Details", "Product", new { id = item.Id})" title="Ver detalle del producto">@item.Title - @item.Artist.LastName</a></h6>
+                            @*TODO:*@
+                            @*<h6><a href="@Url.Action("Details", "Product", new { id = item.Id})" title="Ver detalle del producto">@item.Title - @item.Artist.LastName</a></h6>*@
                             <div class="rating">
                                 @for (int stars = 1; stars <= @item.AvgStars; stars++)
                                 {
