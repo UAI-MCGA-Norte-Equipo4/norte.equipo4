@@ -8,7 +8,7 @@ namespace ArtMarket.Entities.Model
     /// <summary>
     /// UserMetadata Metadata class
     /// </summary>
-    [MetadataType(typeof(OrderNumber.OrderNumberMetadata))]
+    [MetadataType(typeof(User.UserMetadata))]
     public partial class User
     {
         public class UserMetadata
@@ -41,8 +41,18 @@ namespace ArtMarket.Entities.Model
 
             [DisplayName("Email")]
             [Required(ErrorMessage = "Requerido")]
-            public int
+            public string
                 Email
+            {
+                get;
+                set;
+            }
+
+            [DisplayName("Password")]
+            [Required(ErrorMessage = "Requerido")]
+            public string
+            Password
+
             {
                 get;
                 set;
@@ -59,7 +69,7 @@ namespace ArtMarket.Entities.Model
 
             [DisplayName("País")]
             [Required(ErrorMessage = "Requerido")]
-            public double
+            public string
                 Country
             {
                 get;
@@ -68,7 +78,7 @@ namespace ArtMarket.Entities.Model
 
             [DisplayName("Fecha de registro")]
             [Required(ErrorMessage = "Requerido")]
-            public int
+            public DateTime
                 SignUpDate
             {
                 get;
@@ -77,7 +87,7 @@ namespace ArtMarket.Entities.Model
 
             [DisplayName("Cantidad de pedidos")]
             [Required(ErrorMessage = "Requerido")]
-            public double
+            public int
                 OrderCount
             {
                 get;

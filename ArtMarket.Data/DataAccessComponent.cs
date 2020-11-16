@@ -8,7 +8,7 @@ namespace ArtMarket.Data
 {
     public abstract class DataAccessComponent
     {
-        protected const string CONNECTION_NAME = "default";
+        protected const string CONNECTION_NAME = "DefaultConnection";
 
         static DataAccessComponent()
         {
