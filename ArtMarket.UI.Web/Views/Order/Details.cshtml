@@ -1,13 +1,13 @@
-﻿@using Common.Entities;
-@model IList<OrderDetail>
+﻿@using ArtMarket.Entities.Model
+@model IList<ArtMarket.Entities.Model.OrderDetail>
 
 @{
   ViewBag.Title = "Detalles de la orden";
 }
 
 <div class="order-form form-dialog" style="margin:20px auto;">
-  <h2>Detalle de la Orden</h2>
-  <table style="text-align:center;">
+    <h2 style="padding-bottom:10px">Detalle de la Orden</h2>
+    <table class="table" style="text-align:center;">
     <thead>
       <tr>
         <th>Id</th>
