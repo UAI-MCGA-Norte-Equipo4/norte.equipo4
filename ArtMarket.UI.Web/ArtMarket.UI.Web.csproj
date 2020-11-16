@@ -136,11 +136,14 @@
     <Content Include="Content\Images\background.full.png" />
     <Content Include="Content\Images\background.png" />
     <Content Include="Content\Images\credit-card.icon.png" />
+    <Content Include="Content\Images\edit.icon.png" />
+    <Content Include="Content\Images\edit2.icon.png" />
     <Content Include="Content\Images\file.icon.png" />
     <Content Include="Content\Images\Imagen 2%402x.png" />
     <Content Include="Content\Images\Products\onofrio-pacenza-chascomus.jpg" />
     <Content Include="Content\Images\Products\onofrio-pacenza-PORTUARIA.png" />
     <Content Include="Content\Images\Products\onofrio-serigrafia.jpg" />
+    <Content Include="Content\Images\trash.icon.png" />
     <Content Include="Content\img\banner\banner-1.jpg" />
     <Content Include="Content\img\banner\banner-2.jpg" />
     <Content Include="Content\img\banner\banner-3.jpg" />
