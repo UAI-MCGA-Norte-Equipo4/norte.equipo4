@@ -47,8 +47,8 @@
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="Swashbuckle.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cd1bb07a5ac7c7bc, processorArchitecture=MSIL">
       <HintPath>..\packages\Swashbuckle.Core.5.6.0\lib\net40\Swashbuckle.Core.dll</HintPath>
@@ -106,10 +106,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ArtMarket.Business\ArtMarket.Business.csproj">
-      <Project>{5b512e86-794f-4ef5-af61-4809498a39e8}</Project>
-      <Name>ArtMarket.Business</Name>
-    </ProjectReference>
     <ProjectReference Include="..\ArtMarket.Data\ArtMarket.Data.csproj">
       <Project>{3f6937c7-3959-4181-b1fb-c87b492a1f09}</Project>
       <Name>ArtMarket.Data</Name>
@@ -117,10 +113,6 @@
     <ProjectReference Include="..\ArtMarket.Entities\ArtMarket.Entities.csproj">
       <Project>{b1e82dde-2f2b-4619-9c6e-93afd94503c4}</Project>
       <Name>ArtMarket.Entities</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ArtMarket.Framework\ArtMarket.Framework.csproj">
-      <Project>{b0cc8a9d-a614-4657-b8a2-1be0aac73ae3}</Project>
-      <Name>ArtMarket.Framework</Name>
     </ProjectReference>
     <ProjectReference Include="..\ArtMarket.Services.Contracts\ArtMarket.Services.Contracts.csproj">
       <Project>{36e54478-580a-44c7-bfa1-8c8cdcf29b8b}</Project>
