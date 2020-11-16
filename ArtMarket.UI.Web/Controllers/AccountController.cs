@@ -5,6 +5,7 @@ using System.Web.Mvc;
 using System.Web.Security;
 using ArtMarket.Entities.Model;
 using ArtMarket.UI.Web.Models;
+using ArtMarket.UI.Process;
 
 namespace ArtMarket.UI.Web.Controllers
 {
@@ -42,9 +43,12 @@ namespace ArtMarket.UI.Web.Controllers
 			}
             else
             {
-                ModelState.AddModelError("", "Inicio de sesión fallido: credenciales inválidas.");
+				var UserProcess = new UserProcess();
+				var user = UserProcess.Login(model.Email, model.Password);
 
-                return View(model);
+				//ModelState.AddModelError("", "Inicio de sesión fallido: credenciales inválidas.");
+
+				return RedirectToAction("Index", "Home");
 			}
         }
 
