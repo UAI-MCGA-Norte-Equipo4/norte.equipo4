@@ -16,7 +16,7 @@ namespace ArtMarket.Data
                 "INSERT INTO dbo.Artist ([FirstName], [LastName], [LifeSpan], [Country], [Description], [TotalProducts]) " +
                 "VALUES(@FirstName, @LastName, @Country, @Country, @Description, @TotalProducts); SELECT SCOPE_IDENTITY();";
 
-            var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);
+            var db = DatabaseFactory.CreateDatabase(ConnectionName);
             using (DbCommand cmd = db.GetSqlStringCommand(SQL_STATEMENT))
             {
                 db.AddInParameter(cmd, "@FirstName", DbType.String, artist.FirstName);
@@ -50,7 +50,7 @@ namespace ArtMarket.Data
                     "[TotalProducts]=@TotalProducts " +
                 "WHERE [Id]=@Id ";
 
-            var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);
+            var db = DatabaseFactory.CreateDatabase(ConnectionName);
             using (DbCommand cmd = db.GetSqlStringCommand(SQL_STATEMENT))
             {
                 db.AddInParameter(cmd, "@FirstName", DbType.String, artist.FirstName);
@@ -71,7 +71,7 @@ namespace ArtMarket.Data
             const string SQL_STATEMENT = "DELETE dbo.Artist " +
                                          "WHERE [Id]=@Id ";
 
-            var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);
+            var db = DatabaseFactory.CreateDatabase(ConnectionName);
             using (DbCommand cmd = db.GetSqlStringCommand(SQL_STATEMENT))
             {
                 db.AddInParameter(cmd, "@Id", DbType.Int32, id);
@@ -88,7 +88,7 @@ namespace ArtMarket.Data
 
             Artist artist = null;
 
-            var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);
+            var db = DatabaseFactory.CreateDatabase(ConnectionName);
             using (DbCommand cmd = db.GetSqlStringCommand(SQL_STATEMENT))
             {
                 db.AddInParameter(cmd, "@Id", DbType.Int32, id);
@@ -114,7 +114,7 @@ namespace ArtMarket.Data
 
             List<Artist> result = new List<Artist>();
 
-            var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);
+            var db = DatabaseFactory.CreateDatabase(ConnectionName);
             using (DbCommand cmd = db.GetSqlStringCommand(SQL_STATEMENT))
             {
                 using (IDataReader dr = db.ExecuteReader(cmd))

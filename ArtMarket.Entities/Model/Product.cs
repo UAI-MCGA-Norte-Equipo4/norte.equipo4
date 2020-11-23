@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.Runtime.Serialization;
 
 namespace ArtMarket.Entities.Model
 {
     [Serializable]
+    [DataContract]
     public partial class Product : IdentityBase
     {
         public Product()
@@ -15,22 +17,31 @@ namespace ArtMarket.Entities.Model
             this.Rating = new HashSet<Rating>();
         }
 
+        [DataMember]
         [Required]
         [DisplayName("Nombre")]
         public string Title { get; set; }
 
+        [DataMember]
         [Required]
         [DisplayName("Descripción")]
         public string Description { get; set; }
 
+        [DataMember]
+        [DisplayName("Imagen")]
         public string Image { get; set; }
 
+        [DataMember]
         [Required]
         [DisplayName("Precio")]
         public double Price { get; set; }
 
+        [DataMember]
+        [DisplayName("Cantidad vendida")]
         public int QuantitySold { get; set; }
 
+        [DataMember]
+        [DisplayName("Puntuación promedio")]
         public double AvgStars { get; set; }
         public int ArtistId { get; set; }
 

@@ -15,7 +15,7 @@ namespace ArtMarket.Data
                 "INSERT INTO dbo.[User] ([FirstName], [LastName], [Email], [Password], [City], [Country]) " +
                 "VALUES(@FirstName, @LastName, @Email, @Password, @City, @Country); SELECT SCOPE_IDENTITY();";
 
-            var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);
+            var db = DatabaseFactory.CreateDatabase(ConnectionName);
             using (DbCommand cmd = db.GetSqlStringCommand(SQL_STATEMENT))
             {
                 db.AddInParameter(cmd, "@FirstName", DbType.String, user.FirstName);
@@ -45,7 +45,7 @@ namespace ArtMarket.Data
 
             List<User> result = new List<User>();
 
-            var db = DatabaseFactory.CreateDatabase(CONNECTION_NAME);
+            var db = DatabaseFactory.CreateDatabase(ConnectionName);
             using (DbCommand cmd = db.GetSqlStringCommand(SQL_STATEMENT))
             {
                 using (IDataReader dr = db.ExecuteReader(cmd))
