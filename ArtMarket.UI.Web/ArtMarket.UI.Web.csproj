@@ -136,14 +136,11 @@
     <Content Include="Content\Images\background.full.png" />
     <Content Include="Content\Images\background.png" />
     <Content Include="Content\Images\credit-card.icon.png" />
-    <Content Include="Content\Images\edit.icon.png" />
-    <Content Include="Content\Images\edit2.icon.png" />
     <Content Include="Content\Images\file.icon.png" />
     <Content Include="Content\Images\Imagen 2%402x.png" />
     <Content Include="Content\Images\Products\onofrio-pacenza-chascomus.jpg" />
     <Content Include="Content\Images\Products\onofrio-pacenza-PORTUARIA.png" />
     <Content Include="Content\Images\Products\onofrio-serigrafia.jpg" />
-    <Content Include="Content\Images\trash.icon.png" />
     <Content Include="Content\img\banner\banner-1.jpg" />
     <Content Include="Content\img\banner\banner-2.jpg" />
     <Content Include="Content\img\banner\banner-3.jpg" />
@@ -165,6 +162,8 @@
     <Content Include="Content\img\blog\sidebar\fp-2.jpg" />
     <Content Include="Content\img\blog\sidebar\fp-3.jpg" />
     <Content Include="Content\img\discount.jpg" />
+    <Content Include="Content\img\icons\edit.png" />
+    <Content Include="Content\img\icons\trash.png" />
     <Content Include="Content\img\logo.png" />
     <Content Include="Content\img\payment\payment-1.png" />
     <Content Include="Content\img\payment\payment-2.png" />
@@ -474,6 +473,7 @@
       <Name>ArtMarket.UI.Process</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
