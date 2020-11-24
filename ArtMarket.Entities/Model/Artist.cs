@@ -39,7 +39,7 @@ namespace ArtMarket.Entities.Model
 
         [DataMember]
         [Required]
-        [DisplayName("Cuadros")]
+        [DisplayName("Cantidad de productos")]
         public int TotalProducts { get; set; }
         public virtual ICollection<Product> Products { get; set; }
     }

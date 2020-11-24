@@ -16,8 +16,7 @@ namespace ArtMarket.UI.Process
             var response = HttpGet<List<Artist>>("/api/artist/listar", new Dictionary<string, object>(), MediaType.Json);
             return response;
         }
-
-
+        
         public Artist Get(int id)
         {
             var response = HttpGet<Artist>("api/artist/buscar", new List<object>() { id }, MediaType.Json);
