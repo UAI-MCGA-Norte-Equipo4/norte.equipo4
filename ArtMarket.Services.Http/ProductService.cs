@@ -80,7 +80,23 @@ namespace ArtMarket.Services.Http
             try
             {
                 var bc = new ProductBusiness();
-                return bc.GetById(id);
+                var product = bc.GetById(id);
+                if (product == null)
+                {
+                    var httpError = new HttpResponseMessage()
+                    {
+                        StatusCode = HttpStatusCode.NotFound,
+                        ReasonPhrase = "Product not found",
+                    };
+
+                    throw new HttpResponseException(httpError);
+                }
+
+                return product;
+            }
+            catch (HttpResponseException ex)
+            {
+                throw;
             }
             catch (Exception ex)
             {
