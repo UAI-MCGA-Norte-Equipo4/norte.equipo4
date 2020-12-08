@@ -7,7 +7,7 @@ using Microsoft.Practices.EnterpriseLibrary.Data;
 
 namespace ArtMarket.Data
 {
-    public partial class UserDAC : DataAccessComponent
+    public class UserDAC : DataAccessComponent
     {
         public User Create(User user)
         {
@@ -25,12 +25,7 @@ namespace ArtMarket.Data
                 db.AddInParameter(cmd, "@City", DbType.String, user.City);
                 db.AddInParameter(cmd, "@Country", DbType.String, user.Country);
 
-                db.AddInParameter(cmd, "@CreatedOn", DbType.DateTime, user.CreatedOn != DateTime.MinValue ? user.CreatedOn : DateTime.Now);
-                db.AddInParameter(cmd, "@CreatedBy", DbType.String, String.IsNullOrEmpty(user.CreatedBy) ? "ApiUser" : user.CreatedBy);
-                db.AddInParameter(cmd, "@ChangedOn", DbType.DateTime, user.ChangedOn != DateTime.MinValue ? user.CreatedOn : DateTime.Now);
-                db.AddInParameter(cmd, "@ChangedBy", DbType.String, String.IsNullOrEmpty(user.ChangedBy) ? "ApiUser" : user.ChangedBy);
-
-                user.Id = Convert.ToInt32(db.ExecuteScalar(cmd));
+                user.Id = (int) db.ExecuteScalar(cmd);
             }
 
             return user;
@@ -72,6 +67,33 @@ namespace ArtMarket.Data
             user.Password = GetDataValue<string>(dr, "Password");
             user.City = GetDataValue<string>(dr, "City");
             user.Country = GetDataValue<string>(dr, "Country");
+
+            return user;
+        }
+
+        public User Login(string usr, string psw)
+        {
+            const string SQL_STATEMENT =
+                "SELECT [IdUsuario], [NombreUsuario], [Contraseña], [Nombre], [Apellido],[DNI], [FechaNacimiento], [FechaCreacion], IdTipoUsuario " +
+                "FROM dbo.Users " +
+                "WHERE [NombreUsuario]=@usr AND [Contraseña]= @psw ";
+
+            User user = null;
+
+            var db = DatabaseFactory.CreateDatabase(ConnectionName);
+            using (DbCommand cmd = db.GetSqlStringCommand(SQL_STATEMENT))
+            {
+                db.AddInParameter(cmd, "@usr", DbType.String, usr);
+                db.AddInParameter(cmd, "@psw", DbType.String, psw);
+
+                using (IDataReader dr = db.ExecuteReader(cmd))
+                {
+                    if (dr.Read())
+                    {
+                        user = LoadUser(dr);
+                    }
+                }
+            }
 
             return user;
         }
