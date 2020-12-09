@@ -18,7 +18,8 @@
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
-    <IISExpressSSLPort>44340</IISExpressSSLPort>
+    <IISExpressSSLPort>
+    </IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
@@ -428,7 +429,6 @@
     <Content Include="Views\Cart\Index.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Example.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Order\Checkout.cshtml" />
     <Content Include="Views\Order\Details.cshtml" />
@@ -490,7 +490,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>52143</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>https://localhost:44340/</IISUrl>
+          <IISUrl>http://localhost:60741/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

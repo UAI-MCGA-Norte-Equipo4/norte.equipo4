@@ -7,7 +7,7 @@ using ArtMarket.Entities.Model;
 
 namespace ArtMarket.UI.Process
 {
-    class ProductProcess : ProcessComponent
+    public class ProductProcess : ProcessComponent
     {
         public List<Product> GetAll()
         {
