@@ -2,14 +2,18 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace ArtMarket.Entities.Model
 {
+    [Serializable]
+    [DataContract]
     public class IdentityBase
     {
         [Key]
+        [DataMember]
         public int Id { get; set; }
 
         [Required(ErrorMessage = "Requerido")]

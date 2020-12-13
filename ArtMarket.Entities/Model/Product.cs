@@ -43,8 +43,11 @@ namespace ArtMarket.Entities.Model
         [DataMember]
         [DisplayName("Puntuación promedio")]
         public double AvgStars { get; set; }
+
+        [DataMember]
         public int ArtistId { get; set; }
 
+        [DataMember]
         public virtual Artist Artist { get; set; }
         public virtual ICollection<CartItem> CartItem { get; set; }
         public virtual ICollection<OrderDetail> OrderDetail { get; set; }
