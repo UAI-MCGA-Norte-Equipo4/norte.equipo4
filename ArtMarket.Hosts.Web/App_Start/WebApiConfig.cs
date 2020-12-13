@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Http;
 using System.Web.Http.Dispatcher;
 using ArtMarket.Hosts.Web;
+using Swashbuckle.Application;
 
 namespace ArtMarket.Hosts.Web
 {
@@ -19,6 +20,14 @@ namespace ArtMarket.Hosts.Web
             // Taken from http://www.strathweb.com/2013/02/but-i-dont-want-to-call-web-api-controllers-controller/
             var suffix = typeof(DefaultHttpControllerSelector).GetField("ControllerSuffix", BindingFlags.Static | BindingFlags.Public);
             if (suffix != null) suffix.SetValue(null, string.Empty);
+
+
+            // Redirijo del root al índice de Swagger
+            config.Routes.MapHttpRoute("DefaultPage",
+                "",
+                null,
+                null,
+                new RedirectHandler((url => url.RequestUri.ToString()), "swagger"));
 
             config.Services.Replace(typeof(IHttpControllerTypeResolver),
                 new HttpServiceTypeResolver());
