@@ -29,6 +29,11 @@ namespace ArtMarket.UI.Web
 					"~/Scripts/login/main.js",
 					"~/Scripts/login/animsition.min.js",
 					"~/Scripts/login/select2.min.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/dashboard").Include(
+				"~/Scripts/dashboard/jquery.easing.min.js",
+				"~/Scripts/dashboard/sb-admin-2.min.js",
+				"~/Scripts/dashboard/Chart.min.js"));
 		}
 	}
 }
