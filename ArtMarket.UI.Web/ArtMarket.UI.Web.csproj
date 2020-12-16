@@ -231,8 +231,10 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\dashboard\bootstrap.bundle.min.js" />
     <Content Include="Scripts\dashboard\chart-area-earnings.js" />
+    <Content Include="Scripts\dashboard\chart-bar-example.js" />
     <Content Include="Scripts\dashboard\chart-pie-clients.js" />
     <Content Include="Scripts\dashboard\Chart.min.js" />
+    <Content Include="Scripts\dashboard\datatables.js" />
     <Content Include="Scripts\dashboard\jquery.easing.min.js" />
     <Content Include="Scripts\dashboard\sb-admin-2.min.js" />
     <Content Include="Scripts\esm\popper-utils.js" />
@@ -459,6 +461,8 @@
     <Content Include="Views\User\Modify.cshtml" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\Dashboard\Index.cshtml" />
+    <Content Include="Views\Dashboard\Charts.cshtml" />
+    <Content Include="Views\Dashboard\Tables.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

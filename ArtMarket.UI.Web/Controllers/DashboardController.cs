@@ -13,5 +13,15 @@ namespace ArtMarket.UI.Web.Controllers
         {
             return View();
         }
+
+        public ActionResult Charts()
+        {
+            return View();
+        }
+
+        public ActionResult Tables()
+        {
+            return View();
+        }
     }
 }
