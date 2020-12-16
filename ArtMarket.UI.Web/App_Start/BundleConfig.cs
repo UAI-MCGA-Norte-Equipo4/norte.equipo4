@@ -31,6 +31,7 @@ namespace ArtMarket.UI.Web
 					"~/Scripts/login/select2.min.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/dashboard").Include(
+				"~/Scripts/dashboard/bootstrap.bundle.min.js",
 				"~/Scripts/dashboard/jquery.easing.min.js",
 				"~/Scripts/dashboard/sb-admin-2.min.js",
 				"~/Scripts/dashboard/Chart.min.js"));
