@@ -38,6 +38,12 @@ namespace ArtMarket.Hosts.Web
             var appXmlType = config.Formatters.XmlFormatter.SupportedMediaTypes.FirstOrDefault(t => t.MediaType == "application/xml");
             config.Formatters.XmlFormatter.SupportedMediaTypes.Remove(appXmlType);
 
+            // Ignoramos referencias circulares al serializar/deserializar.
+            // Caso de uso: Order contiene un array de OrderDetail y OrderDetail "contiene"/referencia una Order.
+            config.Formatters.JsonFormatter.SerializerSettings.ReferenceLoopHandling
+                = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+
+
             //config.Routes.MapHttpRoute(
             //    name: "DefaultApi",
             //    routeTemplate: "api/{controller}/{id}",
