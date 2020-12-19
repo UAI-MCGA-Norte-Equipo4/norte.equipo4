@@ -69,12 +69,14 @@ namespace ArtMarket.Data.EntityFramework
         {
             if (entity == null)
                 return null;
+
             T exist = _db.Set<T>().Find(key);
             if (exist != null)
             {
                 _db.Entry(exist).CurrentValues.SetValues(entity);
                 _db.SaveChanges();
             }
+
             return exist;
         }
 
