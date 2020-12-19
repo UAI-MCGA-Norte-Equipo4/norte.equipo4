@@ -14,8 +14,10 @@ namespace ArtMarket.Entities.Model
         public int ItemCount { get; set; }
         public int UserId { get; set; }
 
+        [DataMember]
         public virtual ICollection<OrderDetail> OrderDetail { get; set; } = new HashSet<OrderDetail>();
 
+        // TODO: arreglar luego de definir el login
         //[DataMember]
         public virtual User User { get; set; }
     }
