@@ -1,6 +1,8 @@
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.Runtime.Serialization;
 
 
 namespace ArtMarket.Entities.Model
@@ -17,6 +19,7 @@ namespace ArtMarket.Entities.Model
             /// Id
             /// </summary>        
             [DisplayName("Id")]
+            [DataMember]
             [Required(ErrorMessage = "Requerido")]
             public int
               Id
@@ -28,23 +31,22 @@ namespace ArtMarket.Entities.Model
             /// <summary>
             /// User Id
             /// </summary>        
-            [DisplayName("User Name")]
+            [DisplayName("ID de usuario")]
+            [DataMember]
             [Required(ErrorMessage = "Requerido")]
-            [MaxLength(128, ErrorMessage = "User Id Longitud  128 caracteres")]
-            public string UserName { get; set; }
+            public int UserId { get; set; }
 
             /// <summary>
             /// Order Date
             /// </summary>        
             [DisplayName("Order Date")]
+            [DataMember]
             [Required(ErrorMessage = "Requerido")]
             [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
             public DateTime OrderDate { get; set; }
-
-            /// <summary>
-            /// Total Price
-            /// </summary>        
-            [DisplayName("Total Price")]
+    
+            [DisplayName("Precio total")]
+            [DataMember]
             [Required(ErrorMessage = "Requerido")]
             public double
               TotalPrice
@@ -53,10 +55,8 @@ namespace ArtMarket.Entities.Model
                 set;
             }
 
-            /// <summary>
-            /// Order Number
-            /// </summary>        
-            [DisplayName("Order Number")]
+            [DisplayName("Número de orden")]
+            [DataMember]
             [Required(ErrorMessage = "Requerido")]
             public int
               OrderNumber
@@ -64,11 +64,9 @@ namespace ArtMarket.Entities.Model
                 get;
                 set;
             }
-
-            /// <summary>
-            /// Item Count
-            /// </summary>        
-            [DisplayName("Item Count")]
+            
+            [DisplayName("Cantidad de productos")]
+            [DataMember]
             [Required(ErrorMessage = "Requerido")]
             public int
               ItemCount
