@@ -234,8 +234,8 @@
     <Content Include="Scripts\dashboard\bootstrap.bundle.min.js" />
     <Content Include="Scripts\dashboard\chart-area-earnings.js" />
     <Content Include="Scripts\dashboard\chart-bar-example.js" />
-    <Content Include="Scripts\dashboard\chart-pie-clients.js" />
     <Content Include="Scripts\dashboard\Chart.min.js" />
+    <Content Include="Scripts\dashboard\charts.js" />
     <Content Include="Scripts\dashboard\dataTables.bootstrap4.min.js" />
     <Content Include="Scripts\dashboard\datatables.js" />
     <Content Include="Scripts\dashboard\jquery.dataTables.min.js" />

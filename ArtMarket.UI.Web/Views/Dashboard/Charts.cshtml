@@ -225,7 +225,7 @@
                                 </div>
                                 <div class="card-body">
                                     <div class="chart-bar">
-                                        <canvas id="exampleBarChart"></canvas>
+                                        <canvas id="monthlyIncome"></canvas>
                                     </div>
                                 </div>
                             </div>
@@ -236,7 +236,7 @@
                         <div class="col-xl-4 col-lg-5">
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">Fuentes de nuevos clientes</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary">Productos más vendidos</h6>
                                     <div class="dropdown no-arrow">
                                         <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -253,7 +253,7 @@
                                 <!-- Card Body -->
                                 <div class="card-body">
                                     <div class="chart-pie pt-4 pb-2">
-                                        <canvas id="clientsPieChart"></canvas>
+                                        <canvas id="asdChart"></canvas>
                                     </div>
                                     <div class="mt-4 text-center small">
                                         <span class="mr-2">
@@ -305,7 +305,12 @@
     <!-- Page level custom scripts -->
     <script src="~/Scripts/dashboard/chart-pie-clients.js"></script>
     <script src="~/Scripts/dashboard/chart-area-earnings.js"></script>
-    <script src="~/Scripts/dashboard/chart-bar-example.js"></script>
+    <script src="~/Scripts/dashboard/charts.js"></script>
+    
+    <!-- Initialize charts with its values -->
+    <script>
+        init(@Newtonsoft.Json.JsonConvert.SerializeObject(ViewBag.Income));
+    </script>
 </body>
 
 </html>
