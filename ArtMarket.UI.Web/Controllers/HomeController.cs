@@ -15,7 +15,7 @@ namespace ArtMarket.UI.Web.Controllers
 
         public ActionResult Index()
         {
-            var products = pp.GetAll().OrderByDescending(x => x.CreatedBy).Take(4);
+            var products = pp.GetAll().OrderByDescending(x => x.CreatedOn).Take(4);
 
             return View(products.ToList());
         }
