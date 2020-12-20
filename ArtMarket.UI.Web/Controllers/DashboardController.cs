@@ -21,11 +21,43 @@ namespace ArtMarket.UI.Web.Controllers
         // GET: Dashboard
         public ActionResult Index()
         {
-            return View();
+            var orders = _op.GetAll();
+            var totalIncome = orders.Sum(o => o.TotalPrice);
+            var currentMonthIncome = orders.Where(x => x.OrderDate.Month == DateTime.Now.Month).Sum(o => o.TotalPrice);
+
+            var vm = new IndexViewModel {TotalIncome = totalIncome, CurrentMonthIncome = currentMonthIncome, PendingClaims = 6, TasksProgress = 72};
+
+            return View(vm);
         }
 
         public ActionResult Charts()
         {
+            var orders = _op.GetAll();
+
+            // Esta query devuelve los montos acumulados por mes pero se pierde el dato de a qué mes corresponde cada monto.
+            // var income = orders.GroupBy(o => o.OrderDate.Month).Select(x => x.Sum(o => o.TotalPrice)).ToList();
+
+            // Array de (month -> income)
+            var income = orders.
+                GroupBy(o => o.OrderDate.Month).
+                Select(g => new
+                {
+                    Month = g.Key,
+                    Income = g.Sum(o => o.TotalPrice)
+                }).ToList();
+
+
+            for (int i = 7; i <= 12; i++)
+            {
+                if (!income.Select(x => x.Month).Contains(i))
+                {
+                    income.Add(new {Month = i, Income = 0.0});
+                }
+            }
+
+
+            ViewBag.Income = income.OrderBy(item => item.Month).Select(item => item.Income).ToList();
+
             return View();
         }
 
@@ -35,5 +67,13 @@ namespace ArtMarket.UI.Web.Controllers
 
             return View(orders.OrderByDescending(o => o.OrderDate).ToList());
         }
+    }
+
+    public class IndexViewModel
+    {
+        public double TotalIncome { get; set; }
+        public double CurrentMonthIncome { get; set; }
+        public int TasksProgress { get; set; }
+        public int PendingClaims { get; set; }
     }
 }

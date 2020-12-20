@@ -226,6 +226,7 @@
                                                        data-product-desc="@order.OrderDetail.First().Product.Description"
                                                        data-artist-name="@order.OrderDetail.First().Product.Artist.LastName"
                                                        data-artist-desc="@order.OrderDetail.First().Product.Artist.Description"
+                                                       data-product-image="@order.OrderDetail.First().Product.Image"
                                                        data-toggle="modal"
                                                        href="#modalOrderDetail"
                                                        title="Abrir detalle">Ver detalle</a>
@@ -256,6 +257,7 @@
                                 <p id="productDesc"></p>
                                 <p id="artistName"></p>
                                 <p id="artistDesc"></p>
+                                <img id="productImage" class="img-fluid d-block mx-auto" style="max-height: 20rem;" alt="Imagen del producto" />
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
