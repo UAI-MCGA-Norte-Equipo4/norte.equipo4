@@ -31,7 +31,7 @@ namespace ArtMarket.UI.Process
 
         public void Edit(Artist artist)
         {
-            HttpPost<Artist>("api/artist/editar", artist, MediaType.Json);
+            HttpPut<Artist>("api/artist/editar", artist, MediaType.Json);
         }
 
         public void Delete(int id)

@@ -43,7 +43,7 @@ namespace ArtMarket.UI.Web.Controllers
 			//CheckAuditPattern(artist, true);
 			process.Add(artist);
 
-			return RedirectToAction("Index", "Home");
+			return RedirectToAction("Index");
 		}
 
 		public ActionResult Modify(int id)
@@ -58,6 +58,8 @@ namespace ArtMarket.UI.Web.Controllers
 		public ActionResult DoUpdate(Artist artist)
 		{
 			//CheckAuditPattern(artist);
+			artist.CreatedOn = DateTime.Now;
+			artist.ChangedOn = DateTime.Now;
             process.Edit(artist);
 
 			return RedirectToAction("Index");
@@ -65,7 +67,7 @@ namespace ArtMarket.UI.Web.Controllers
 
 		public ActionResult Delete(int id)
 		{
-            //process.Delete(id);
+            process.Delete(id);
 
 			return RedirectToAction("Index");
 		}

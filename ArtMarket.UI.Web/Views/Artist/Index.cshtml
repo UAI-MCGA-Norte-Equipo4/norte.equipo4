@@ -27,24 +27,26 @@
         </tbody>
         @foreach (Artist artist in Model)
         {
-            <tr>
-                <td> @artist.FirstName</td>
-                <td> @artist.LastName</td>
-                <td> @artist.LifeSpan</td>
-                <td> @artist.Country</td>
-                <td> @artist.Description</td>
-                <td> @artist.TotalProducts</td>
-                <td style="text-align:center">
-                    <a href="/Artist/Modify/@artist.Id">
-                        <img class="icon" src="~/Content/img/icons/edit.png" />
-                    </a>
-                </td>
-                <td>
-                    <a href="/Artist/Delete/@artist.Id">
-                        <img class="icon" src="~/Content/img/icons/trash.png"/>
-                    </a>
-                </td>
-            </tr>
+    <tr>
+        <td> @artist.FirstName</td>
+        <td> @artist.LastName</td>
+        <td> @artist.LifeSpan</td>
+        <td> @artist.Country</td>
+        <td> @artist.Description</td>
+        <td> @artist.TotalProducts</td>
+        <td>
+            <a href="/Artist/Modify/@artist.Id">
+                <img src="~/Content/img/icons/edit.png" />
+            </a>
+            <!--@Html.ActionLink("Modificar", "Modify", "Product", new { id = artist.Id }, null)-->
+        </td>
+        <td>
+            <a href="/Artist/Delete/@artist.Id">
+                <img src="~/Content/img/icons/trash.png" />
+            </a>
+            <!--@Html.ActionLink("Eliminar", "Delete", "Product", new { id = artist.Id }, null)-->
+        </td>
+    </tr>
         }
 
     </table>
