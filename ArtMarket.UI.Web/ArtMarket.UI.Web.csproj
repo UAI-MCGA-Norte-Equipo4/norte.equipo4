@@ -18,8 +18,7 @@
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
-    <IISExpressSSLPort>
-    </IISExpressSSLPort>
+    <IISExpressSSLPort>44340</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
@@ -202,14 +201,11 @@
     <Content Include="Content\img\payment\payment-3.png" />
     <Content Include="Content\img\payment\payment-4.png" />
     <Content Include="Content\img\payment\payment-5.png" />
-    <Content Include="Content\img\product\details\product-1.jpg" />
-    <Content Include="Content\img\product\details\product-2.jpg" />
-    <Content Include="Content\img\product\details\product-3.jpg" />
-    <Content Include="Content\img\product\details\product-4.jpg" />
-    <Content Include="Content\img\product\details\thumb-1.jpg" />
-    <Content Include="Content\img\product\details\thumb-2.jpg" />
-    <Content Include="Content\img\product\details\thumb-3.jpg" />
-    <Content Include="Content\img\product\details\thumb-4.jpg" />
+    <Content Include="Content\img\product\autorretrato.jpg" />
+    <Content Include="Content\img\product\guernica.jpg" />
+    <Content Include="Content\img\product\la-mujer-que-llora.jpg" />
+    <Content Include="Content\img\product\la-noche-estrellada.jpg" />
+    <Content Include="Content\img\product\mona-lisa.jpg" />
     <Content Include="Content\img\product\product-1.jpg" />
     <Content Include="Content\img\product\product-2.jpg" />
     <Content Include="Content\img\product\product-3.jpg" />
@@ -218,10 +214,6 @@
     <Content Include="Content\img\product\product-6.jpg" />
     <Content Include="Content\img\product\product-7.jpg" />
     <Content Include="Content\img\product\product-8.jpg" />
-    <Content Include="Content\img\product\related\rp-1.jpg" />
-    <Content Include="Content\img\product\related\rp-2.jpg" />
-    <Content Include="Content\img\product\related\rp-3.jpg" />
-    <Content Include="Content\img\product\related\rp-4.jpg" />
     <Content Include="Content\img\shop-cart\cp-1.jpg" />
     <Content Include="Content\img\shop-cart\cp-2.jpg" />
     <Content Include="Content\img\shop-cart\cp-3.jpg" />
