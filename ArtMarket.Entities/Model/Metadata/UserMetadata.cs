@@ -48,18 +48,7 @@ namespace ArtMarket.Entities.Model
                 set;
             }
 
-            [DisplayName("Password")]
-            [Required(ErrorMessage = "Requerido")]
-            public string
-            Password
-
-            {
-                get;
-                set;
-            }
-
             [DisplayName("Ciudad")]
-            [Required(ErrorMessage = "Requerido")]
             public string
                 City
             {
@@ -68,7 +57,6 @@ namespace ArtMarket.Entities.Model
             }
 
             [DisplayName("País")]
-            [Required(ErrorMessage = "Requerido")]
             public string
                 Country
             {

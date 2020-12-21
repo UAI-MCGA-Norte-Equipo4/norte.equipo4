@@ -26,6 +26,9 @@ namespace ArtMarket.Entities.Model
         [DisplayName("Apellido")]
         public string LastName { get; set; }
 
+        [DataMember]
+        [Required]
+        [DisplayName("Edad")]
         public string LifeSpan { get; set; }
 
         [DataMember]
@@ -41,6 +44,7 @@ namespace ArtMarket.Entities.Model
         [Required]
         [DisplayName("Cantidad de productos")]
         public int TotalProducts { get; set; }
+
         public virtual ICollection<Product> Products { get; set; }
     }
 }

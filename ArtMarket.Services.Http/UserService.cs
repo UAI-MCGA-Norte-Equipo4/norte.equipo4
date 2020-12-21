@@ -16,13 +16,14 @@ namespace ArtMarket.Services.Http
         [Route("Login")]
         public User Login(string email, string password)
         {
+            User user = new User {Email = email};
             try
             {
-                var us = new UserBusiness();
-                User user = us.Login(email, password);
-
+                //var us = new UserBusiness();
+                //User user = us.Login(email, password);
+                
                 if (user.Email == null)
-                    throw new ArgumentException("User Not Found");//GENERA EXCEPCION PARA EL CATCH
+                    throw new ArgumentException("User Not Found");
                 else
                     return user;
             }

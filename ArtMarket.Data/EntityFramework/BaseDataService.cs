@@ -95,8 +95,17 @@ namespace ArtMarket.Data.EntityFramework
 
         public virtual T Create(T entity)
         {
-            _db.Set<T>().Add(entity);
-            _db.SaveChanges();
+            try
+            {
+                _db.Set<T>().Add(entity);
+                _db.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                throw ex;
+            }
+
             return entity;
         }
     }

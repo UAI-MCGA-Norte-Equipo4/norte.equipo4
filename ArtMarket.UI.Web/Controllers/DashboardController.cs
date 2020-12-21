@@ -65,6 +65,9 @@ namespace ArtMarket.UI.Web.Controllers
         {
             var orders = _op.GetAll();
 
+            // avoid orders without order_detail
+            orders = orders.Where(o => o.OrderDetail.Count > 0).ToList();
+
             return View(orders.OrderByDescending(o => o.OrderDate).ToList());
         }
     }
