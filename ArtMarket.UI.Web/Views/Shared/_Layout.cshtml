@@ -83,8 +83,6 @@
                             <li class="active"><a href="/Home">Inicio</a></li>
                             <li><a href="/Product">Galería</a></li>
                             <li><a href="/Home/Contact">Contacto</a></li>
-                            @if (User.IsInRole("Admin"))
-                            {
                                 <li>
                                     <a href="#">Admin</a>
                                     <ul class="dropdown">
@@ -94,7 +92,6 @@
                                         <li><a href="/Order">Pedidos</a></li>
                                     </ul>
                                 </li>
-                            }
                         </ul>
                     </nav>
                 </div>

@@ -8,28 +8,28 @@
         <table class="table">
             <tr>
                 <th>
-                    @Html.DisplayNameFor(model => model.CartItems.FirstOrDefault().Product.Artist.LastName)
+                    @Html.DisplayNameFor(model => model.CartItem.FirstOrDefault().Product.Artist.LastName)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.CartItems.FirstOrDefault().Product.Title)
+                    @Html.DisplayNameFor(model => model.CartItem.FirstOrDefault().Product.Title)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.CartItems.FirstOrDefault().Product.Description)
+                    @Html.DisplayNameFor(model => model.CartItem.FirstOrDefault().Product.Description)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.CartItems.FirstOrDefault().Quantity)
+                    @Html.DisplayNameFor(model => model.CartItem.FirstOrDefault().Quantity)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.CartItems.FirstOrDefault().Product.Price)
+                    @Html.DisplayNameFor(model => model.CartItem.FirstOrDefault().Product.Price)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.CartItems.FirstOrDefault().Price)
+                    @Html.DisplayNameFor(model => model.CartItem.FirstOrDefault().Price)
                 </th>
 
                 <th></th>
             </tr>
 
-            @foreach (var item in Model.CartItems)
+            @foreach (var item in Model.CartItem)
             {
                 <tr>
                     <td>
@@ -66,7 +66,7 @@
 
         </table>
 
-        @if (Model != null && Model.CartItems.Count > 0)
+        @if (Model != null && Model.CartItem.Count > 0)
         {
             <div>
                 <button type="button" class="button-principal" onclick="location.href = '@Url.Action("Payment", "Order")'">Finalizar</button>
