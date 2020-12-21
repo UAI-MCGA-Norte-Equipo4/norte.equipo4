@@ -32,7 +32,7 @@ namespace ArtMarket.Services.Http
                 var httpError = new HttpResponseMessage()
                 {
                     StatusCode = (HttpStatusCode)422,
-                    Content = new StringContent(ex.Message),
+                    Content = new StringContent(ex.Message + ". Excepción interna: " + ex.InnerException),
                 };
                 throw new HttpResponseException(httpError);
             }
