@@ -29,7 +29,7 @@ namespace ArtMarket.UI.Process
 
         public void Edit(Product product)
         {
-            HttpPost<Product>("api/product/editar", product, MediaType.Json);
+            HttpPut<Product>("api/product/editar", product, MediaType.Json);
         }
 
         public void Delete(int id)

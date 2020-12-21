@@ -3,6 +3,9 @@ using System.Linq;
 using System.Web.Mvc;
 using ArtMarket.Entities.Model;
 using ArtMarket.UI.Process;
+using ArtMarket.Business;
+using System.IO;
+using System;
 
 namespace ArtMarket.UI.Web.Controllers
 {
@@ -10,6 +13,7 @@ namespace ArtMarket.UI.Web.Controllers
     {
         private ProductProcess _pp;
         private ArtistProcess _ap;
+
 
         public ProductController()
         {
@@ -37,6 +41,36 @@ namespace ArtMarket.UI.Web.Controllers
             ViewBag.ArtistList = artistList;
 
             return View();
+        }
+
+        public ActionResult Nuevo(Product form)
+        {
+            Artist artist = new Artist();
+
+           //artist = _ap.Get(form.ArtistId);
+            // uploaded image
+            if (Request.Files.Count > 0)
+            {
+                var file = Request.Files[0];
+
+                if (file != null && file.ContentLength > 0)
+                {
+                    var fileName = Path.GetFileName(file.FileName);
+                    var path = Path.Combine(Server.MapPath("~/Content/Img/Product"), fileName);
+                    file.SaveAs(path);
+
+                    form.Image = file.FileName;
+                }
+            }
+
+            //form.Artist = artist;
+            form.ChangedOn = DateTime.Now;
+            form.CreatedOn = DateTime.Now;
+
+            //CheckAuditPattern(product, true);
+            _pp.Add(form);
+
+            return RedirectToAction("Index");
         }
 
         //	[HttpPost]
@@ -88,24 +122,24 @@ namespace ArtMarket.UI.Web.Controllers
         //		return RedirectToAction("Index");
         //	}
 
-        //	public ActionResult Modify(int id)
-        //	{
-        //		Product product = ProductManagement.Get(id);
+        	public ActionResult Modify(int id)
+        	{
+            Product product = _pp.Get(id);
 
-        //		var artistList = new List<SelectListItem>();
-        //		artistList.AddRange(ArtistManagement.GetAll()
-        //			.Select(a => new SelectListItem
-        //			{
-        //				Value = a.Id.ToString(),
-        //				Text = a.LastName
-        //			})); ;
+        		var artistList = new List<SelectListItem>();
+        		artistList.AddRange(_ap.GetAll()
+        			.Select(a => new SelectListItem
+        			{
+        				Value = a.Id.ToString(),
+        				Text = a.LastName
+        			})); ;
 
-        //		artistList.Where(x => x.Value == product.ArtistId.ToString()).First().Selected = true;
+        		artistList.Where(x => x.Value == product.ArtistId.ToString()).First().Selected = true;
 
-        //		ViewBag.ArtistList = artistList;
+        		ViewBag.ArtistList = artistList;
 
-        //		return View(product);
-        //	}
+        		return View(product);
+        	}
 
         public ActionResult Details(int id)
         {
@@ -126,25 +160,28 @@ namespace ArtMarket.UI.Web.Controllers
         //	}
 
 
-        //	[HttpPost]
-        //	public ActionResult DoUpdate(Product product)
-        //	{
-        //		// If there is not a new image, we recover the previous one
-        //		if (product.Image == null) {
-        //			Product originalProduct = ProductManagement.GetAsNoTracking(product.Id);
-        //			product.Image = originalProduct.Image;
-        //		}
+        [HttpPost]
+        public ActionResult DoUpdate(Product product)
+        {
+            // If there is not a new image, we recover the previous one
+            if (product.Image == null)
+            {
+                Product originalProduct = _pp.Get(product.Id);
+                product.Image = originalProduct.Image;
+            }
 
-        //		CheckAuditPattern(product);
-        //		ProductManagement.Update(product);
+            product.ChangedOn = DateTime.Now;
+            product.CreatedOn = DateTime.Now;
 
-        //		return RedirectToAction("Index");
-        //	}
+            _pp.Edit(product);
 
-        //	public ActionResult Delete(int id)
-        //	{
-        //		ProductManagement.Delete(id);
-        //		return RedirectToAction("Index");
-        //	}
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult Delete(int id)
+        {
+            _pp.Delete(id);
+            return RedirectToAction("Index");
+        }
     }
 }

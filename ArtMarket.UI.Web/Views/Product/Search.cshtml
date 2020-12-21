@@ -14,7 +14,7 @@
             @foreach (var item in Model)
             {
                 <button class="card" onclick="location.href = '@Url.Action("Details", "Product", new { id = item.Id})'">
-                    <img class="search-card-picture" src="/Content/Images/Products/@item.Image" alt="Imagen no disponible" />
+                    <img class="search-card-picture" src="/Content/Img/Product/@item.Image" alt="Imagen no disponible" />
                     <p class="card-title">@item.Title</p>
                     <p class="card-price">U$S @item.Price .-</p>
                 </button>

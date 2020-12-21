@@ -25,16 +25,22 @@ namespace ArtMarket.UI.Process
         /// <returns>An object specified in the generic type.</returns>
         protected static T HttpGet<T>(string path, Dictionary<string, object> parameters, string mediaType)
         {
-            UriBuilder builder = new UriBuilder
-            {
-                Path = path,
-                Query = string.Join("&", parameters.Where(p => p.Value != null)
-                    .Select(p => string.Format("{0}={1}",
-                        HttpUtility.UrlEncode(p.Key),
-                        HttpUtility.UrlEncode(p.Value.ToString()))))
-            };
+            T result = default(T);
 
-            return HttpGet<T>(builder.Uri.PathAndQuery, mediaType);
+            // Execute the Http call.
+            using (HttpClient client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(ConfigurationManager.AppSettings["serviceUrl"]);
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue(mediaType));
+
+                var response = client.GetAsync(path).Result;
+                response.EnsureSuccessStatusCode();
+
+                result = response.Content.ReadAsAsync<T>().Result;
+            }
+
+
+            return result;
         }
 
         /// <summary>
@@ -48,7 +54,17 @@ namespace ArtMarket.UI.Process
         protected static T HttpGet<T>(string path, List<object> values, string mediaType)
         {
             string query = string.Empty;
-            string pathAndQuery = path.EndsWith("/") ? path : path += "/";
+            string pathAndQuery = string.Empty;
+
+            if (path == "api/product/buscar")
+            {
+                pathAndQuery = path.EndsWith("/") ? path : path += "/";
+            }
+            else
+            {
+                pathAndQuery = path.EndsWith("/") ? path : path += "?id=";
+            }
+                
 
             if (values != null && values.Count > 0)
                 query = string.Join("/", values.ToArray());
@@ -103,7 +119,26 @@ namespace ArtMarket.UI.Process
                 client.BaseAddress = new Uri(ConfigurationManager.AppSettings["serviceUrl"]);
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue(mediaType));
 
-                var response = client.PostAsJsonAsync(pathAndQuery, value).Result;
+                var response = client.PostAsJsonAsync(pathAndQuery,value).Result;
+                response.EnsureSuccessStatusCode();
+                result = response.Content.ReadAsAsync<T>().Result;
+            }
+            return result;
+        }
+
+        public static T HttpPut<T>(string path, T value, string mediaType)
+        {
+
+            var pathAndQuery = path.EndsWith("/") ? path : path += "/";
+            T result = default(T);
+            // Execute the Http call.
+            using (var client = new HttpClient())
+            {
+                Type typeOft = typeof(T);
+                client.BaseAddress = new Uri(ConfigurationManager.AppSettings["serviceUrl"]);
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue(mediaType));
+
+                var response = client.PutAsJsonAsync(pathAndQuery, value).Result;
                 response.EnsureSuccessStatusCode();
                 result = response.Content.ReadAsAsync<T>().Result;
             }
