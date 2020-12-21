@@ -7,6 +7,7 @@ using Microsoft.Practices.EnterpriseLibrary.Data;
 
 namespace ArtMarket.Data
 {
+    // Todo esto queda deprecado si utilizamos login de Owin
     public class UserDAC : DataAccessComponent
     {
         public User Create(User user)
@@ -21,7 +22,6 @@ namespace ArtMarket.Data
                 db.AddInParameter(cmd, "@FirstName", DbType.String, user.FirstName);
                 db.AddInParameter(cmd, "@LastName", DbType.String, user.LastName);
                 db.AddInParameter(cmd, "@Email", DbType.String, user.Email);
-                db.AddInParameter(cmd, "@Password", DbType.String, user.Password);
                 db.AddInParameter(cmd, "@City", DbType.String, user.City);
                 db.AddInParameter(cmd, "@Country", DbType.String, user.Country);
 
@@ -64,7 +64,6 @@ namespace ArtMarket.Data
             user.FirstName = GetDataValue<string>(dr, "FirstName");
             user.LastName = GetDataValue<string>(dr, "LastName");
             user.Email = GetDataValue<string>(dr, "Email");
-            user.Password = GetDataValue<string>(dr, "Password");
             user.City = GetDataValue<string>(dr, "City");
             user.Country = GetDataValue<string>(dr, "Country");
 

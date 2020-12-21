@@ -14,7 +14,7 @@ namespace ArtMarket.Business
         public User Login(User users)
         {
             var userDac = new UserDAC();
-            return userDac.Login(users.Email, users.Password);
+            return userDac.Login(users.Email, "password");
         }
         
         public User Add(User user)

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Data.Entity.Infrastructure;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
@@ -11,6 +10,7 @@ using ArtMarket.UI.Web;
 using ArtMarket.UI.Process;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
+using Microsoft.Owin.Security;
 
 namespace ArtMarket.UI.Web.Controllers
 {
@@ -114,10 +114,21 @@ namespace ArtMarket.UI.Web.Controllers
             if (ModelState.IsValid)
             {
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
-                var result = await UserManager.CreateAsync(user, model.Password);
+                IdentityResult result = null;
+                result = await UserManager.CreateAsync(user, model.Password);
+                
                 if (result.Succeeded)
                 {
-                    UserManagement.Add(new User() { Email = model.Email, FirstName = model.Email, LastName = model.Email, SignUpDate = DateTime.Now });
+                    UserManagement.Add(new User()
+                    {
+                        Email = model.Email, 
+                        FirstName = model.Email, 
+                        LastName = model.Email, 
+                        SignUpDate = DateTime.Now,
+                        CreatedOn = DateTime.Now,
+                        ChangedOn = DateTime.Now
+                    });
+                    
                     await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
 
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
@@ -146,16 +157,22 @@ namespace ArtMarket.UI.Web.Controllers
             return RedirectToAction("Index", "Home");
 		}
 
-		public ActionResult LoginLogout()
+        private IAuthenticationManager AuthenticationManager
+        {
+            get
+            {
+                return HttpContext.GetOwinContext().Authentication;
+            }
+        }
+
+        public ActionResult LoginLogout()
 		{
-			if (User.Identity.IsAuthenticated)
-			{
-                FormsAuthentication.SignOut();
+            if (User.Identity.IsAuthenticated)
+            {
+                AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
+            }
 
-                return RedirectToAction("Index", "Home");
-			}
-
-			return RedirectToAction("Login");
+            return RedirectToAction("Login");
 		}
 
         private ActionResult RedirectToLocal(string returnUrl)
@@ -173,6 +190,55 @@ namespace ArtMarket.UI.Web.Controllers
             {
                 ModelState.AddModelError("", error);
             }
+        }
+
+
+
+
+
+        // Extras...
+        //
+        // GET: /Account/ForgotPassword
+        [AllowAnonymous]
+        public ActionResult ForgotPassword()
+        {
+            return View(new ForgotPasswordViewModel());
+        }
+
+        //
+        // POST: /Account/ForgotPassword
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> ForgotPassword(ForgotPasswordViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = await UserManager.FindByNameAsync(model.Email);
+                if (user == null || !(await UserManager.IsEmailConfirmedAsync(user.Id)))
+                {
+                    // Don't reveal that the user does not exist or is not confirmed
+                    return View("ForgotPasswordConfirmation");
+                }
+
+                // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
+                // Send an email with this link
+                // string code = await UserManager.GeneratePasswordResetTokenAsync(user.Id);
+                // var callbackUrl = Url.Action("ResetPassword", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);		
+                // await UserManager.SendEmailAsync(user.Id, "Reset Password", "Please reset your password by clicking <a href=\"" + callbackUrl + "\">here</a>");
+                // return RedirectToAction("ForgotPasswordConfirmation", "Account");
+            }
+
+            // If we got this far, something failed, redisplay form
+            return View(model);
+        }
+
+        //
+        // GET: /Account/ForgotPasswordConfirmation
+        [AllowAnonymous]
+        public ActionResult ForgotPasswordConfirmation()
+        {
+            return View();
         }
     }
 }
