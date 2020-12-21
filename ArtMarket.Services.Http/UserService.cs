@@ -16,7 +16,7 @@ namespace ArtMarket.Services.Http
         [Route("Login")]
         public User Login(string email, string password)
         {
-            User user = new User({Email = email};
+            User user = new User {Email = email};
             try
             {
                 //var us = new UserBusiness();
