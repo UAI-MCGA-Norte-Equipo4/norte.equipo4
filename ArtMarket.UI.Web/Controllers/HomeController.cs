@@ -1,30 +1,31 @@
-﻿using System.Web.Mvc;
+﻿using System.Linq;
+using System.Web.Mvc;
+using ArtMarket.UI.Process;
 
 namespace ArtMarket.UI.Web.Controllers
 {
 	public class HomeController : Controller
-	{
-        //public IProductManagement ProductManagement { get; set; }
+    {
+        private ProductProcess pp;
 
         public HomeController()
         {
-            //ProductManagement = new ProductManagement();
+            pp = new ProductProcess();
         }
 
         public ActionResult Index()
         {
-            //var products = ProductManagement.GetAllProducts().OrderByDescending(x => x.CreatedBy).Take(4);
-            //return View(products.ToList());
+            var products = pp.GetAll().OrderByDescending(x => x.CreatedOn).Take(4);
 
-            return View();
+            return View(products.ToList());
         }
 
-        public ActionResult Example()
+        public ActionResult Contact()
         {
             return View();
         }
 
-        public ActionResult Contact()
+        public ActionResult About()
         {
             return View();
         }

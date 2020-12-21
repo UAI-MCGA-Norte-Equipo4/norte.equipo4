@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Http;
 using System.Web.Http.Dispatcher;
 using ArtMarket.Hosts.Web;
+using Swashbuckle.Application;
 
 namespace ArtMarket.Hosts.Web
 {
@@ -20,6 +21,14 @@ namespace ArtMarket.Hosts.Web
             var suffix = typeof(DefaultHttpControllerSelector).GetField("ControllerSuffix", BindingFlags.Static | BindingFlags.Public);
             if (suffix != null) suffix.SetValue(null, string.Empty);
 
+
+            // Redirijo del root al índice de Swagger
+            config.Routes.MapHttpRoute("DefaultPage",
+                "",
+                null,
+                null,
+                new RedirectHandler((url => url.RequestUri.ToString()), "swagger"));
+
             config.Services.Replace(typeof(IHttpControllerTypeResolver),
                 new HttpServiceTypeResolver());
 
@@ -28,6 +37,12 @@ namespace ArtMarket.Hosts.Web
 
             var appXmlType = config.Formatters.XmlFormatter.SupportedMediaTypes.FirstOrDefault(t => t.MediaType == "application/xml");
             config.Formatters.XmlFormatter.SupportedMediaTypes.Remove(appXmlType);
+
+            // Ignoramos referencias circulares al serializar/deserializar.
+            // Caso de uso: Order contiene un array de OrderDetail y OrderDetail "contiene"/referencia una Order.
+            config.Formatters.JsonFormatter.SerializerSettings.ReferenceLoopHandling
+                = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+
 
             //config.Routes.MapHttpRoute(
             //    name: "DefaultApi",

@@ -28,7 +28,7 @@ namespace ArtMarket.Services.Http
                 var httpError = new HttpResponseMessage()
                 {
                     StatusCode = (HttpStatusCode)422,
-                    ReasonPhrase = ex.Message + "+" + ex.InnerException
+                    Content = new StringContent(ex.Message + "+" + ex.InnerException),
                 };
                 throw new HttpResponseException(httpError);
             }
@@ -49,7 +49,7 @@ namespace ArtMarket.Services.Http
                 var httpError = new HttpResponseMessage()
                 {
                     StatusCode = (HttpStatusCode)422,
-                    ReasonPhrase = ex.Message
+                    Content = new StringContent(ex.Message),
                 };
 
                 throw new HttpResponseException(httpError);
@@ -75,7 +75,7 @@ namespace ArtMarket.Services.Http
                 var httpError = new HttpResponseMessage()
                 {
                     StatusCode = (HttpStatusCode)422,
-                    ReasonPhrase = ex.Message
+                    Content = new StringContent(ex.Message),
                 };
 
                 throw new HttpResponseException(httpError);
@@ -101,7 +101,7 @@ namespace ArtMarket.Services.Http
                 var httpError = new HttpResponseMessage()
                 {
                     StatusCode = (HttpStatusCode)422,
-                    ReasonPhrase = ex.Message
+                    Content = new StringContent(ex.Message),
                 };
 
                 throw new HttpResponseException(httpError);

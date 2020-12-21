@@ -14,7 +14,7 @@ namespace ArtMarket.Business
 
         public List<Product> GetAll()
         {
-            return db.Get();
+            return db.Get(includeEntities: "Artist");
         }
 
         public Product GetById(int id)

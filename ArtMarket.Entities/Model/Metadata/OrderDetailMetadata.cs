@@ -1,6 +1,7 @@
 using System;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.Runtime.Serialization;
 
 
 namespace ArtMarket.Entities.Model
@@ -18,6 +19,7 @@ namespace ArtMarket.Entities.Model
             /// </summary>        
             [DisplayName("Id")]
             [Required(ErrorMessage = "Requerido")]
+            [DataMember]
             public int
               Id
             {
@@ -30,6 +32,7 @@ namespace ArtMarket.Entities.Model
             /// </summary>        
             [DisplayName("Order Id")]
             [Required(ErrorMessage = "Requerido")]
+            [DataMember]
             public int
               OrderId
             {
@@ -41,6 +44,7 @@ namespace ArtMarket.Entities.Model
             /// Product Id
             /// </summary>        
             [DisplayName("Product Id")]
+            [DataMember]
             [Required(ErrorMessage = "Requerido")]
             public int
               ProductId
@@ -54,6 +58,7 @@ namespace ArtMarket.Entities.Model
             /// </summary>        
             [DisplayName("Price")]
             [Required(ErrorMessage = "Requerido")]
+            [DataMember]
             public double
               Price
             {
@@ -66,6 +71,7 @@ namespace ArtMarket.Entities.Model
             /// </summary>        
             [DisplayName("Quantity")]
             [Required(ErrorMessage = "Requerido")]
+            [DataMember]
             public int
               Quantity
             {
