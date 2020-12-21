@@ -24,12 +24,12 @@ namespace ArtMarket.UI.Web.Controllers
 
         public ActionResult Index(Cart cart = null)
         {
-            var user = 1;
-            cart = process.Get(user);
 
             if (cart == null)
             {
-                cart = process.Add(cart);
+                var user = 1;
+                cart = process.Get(user);
+                //cart = process.Add(cart);
             }
 
             return View("Index", cart);
